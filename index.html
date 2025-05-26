@@ -70,9 +70,9 @@
         }
         .published-works h2 { margin-bottom: 2px; }
         .published-works img {
-            width: 80px;
-            height: 110px;
-            margin-right: 2px;
+            width: 180px;
+            height: 200px;
+            margin-right: 3px;
             vertical-align: top;
             border: 1px solid #ddd;
         }
@@ -89,7 +89,6 @@
              margin-bottom: 2px;
         }
         .bio-text p, .currently-text p { margin: 2px 0; }
-
 
         .main-content-area {
             display: flex;
@@ -121,6 +120,8 @@
             flex-basis: 78%;
             overflow-y: auto;
             padding-left: 2px;
+            display: flex;
+            flex-direction: column;
         }
         .details-column article {
             margin-bottom: 4px;
@@ -136,31 +137,61 @@
             list-style: none;
             padding-left: 0;
         }
+        .papers-list li { margin-bottom: 1px; }
 
         .side-by-side-container {
             display: flex;
             flex-direction: row;
-            gap: 4px;
+            gap: 2px;
             margin-bottom: 4px;
         }
         .side-by-side-container > article {
             flex-basis: 50%;
         }
+        
+        .lectures-papers-container {
+            display: flex;
+            flex-direction: row;
+            gap: 4px;
+            margin-bottom: 4px;
+        }
+        .lectures-papers-container > article {
+             flex-basis: 50%;
+        }
+        .lectures-papers-container > #lectures {
+            flex-basis: 60%;
+        }
+        .lectures-papers-container > #papers {
+            flex-basis: 40%;
+        }
 
         .lectures-section table {
             width: 100%;
             border-collapse: collapse;
-            font-size: 10px;
+            font-size: 9px;
         }
-        .lectures-section th, .lectures-section td {
-            border: 1px solid #ddd;
-            padding: 2px;
+        .lectures-section th {
+            font-size: 10px;
+            font-weight: bold;
+            padding: 1px;
+            text-align: left;
+            vertical-align: top;
+            border: none;
+        }
+        .lectures-section td {
+            border: none;
+            padding: 1px;
             text-align: left;
             vertical-align: top;
         }
-        .lectures-section h3 { font-size: 11px; margin: 0 0 1px 0; }
-        .lectures-section ul { margin: 0; padding-left: 12px;}
+        .lectures-section h2 { font-size: 16px; margin-bottom: 1px; }
+        .lectures-section ul { margin: 0; padding-left: 10px; font-size: 12px;}
+        .lectures-section li { margin-bottom: 0px;}
         
+        #papers h2 { font-size: 14px; margin-bottom: 1px; }
+        #papers ul { padding-left: 0; }
+        #papers li a { font-size: 12px; }
+
         br { display: none; }
 
     </style>
@@ -216,18 +247,18 @@
         <div class="main-content-area">
             <aside class="socials-column">
                 <h2>Socials</h2>
-                <p><img src="https://cdn1.iconfinder.com/data/icons/logotypes/32/youtube-512.png" alt="YouTube" /><a href="https://tinyurl.com/diegopacheco" title="Diego Pacheco Youtube Channel">Youtube Channel</a></p>
                 <p><img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/github-logo.png" alt="GitHub" /><a href="https://github.com/diegopacheco/" title="diegopacheco on GitHub">GitHub</a></p>
-                <p><img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/twitter-logo.png" alt="Twitter" /><a href="https://twitter.com/diego_pacheco" title="@diego_pacheco on Twitter">@diego_pacheco</a></p>
-                <p><img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/twitter-logo.png" alt="Bluesky" /><a href="https://bsky.app/profile/diegopacheco.bsky.social" title="diegopacheco.bsky.social on Bluesky">bsky.social</a></p>
                 <p><img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/linkedin-logo.png" alt="LinkedIn" /><a href="https://br.linkedin.com/in/diegopachecors" title="diegopachecors on LinkedIn">LinkedIn</a></p>
                 <p><img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/blogger-logo.png" alt="Blogger" /><a href="http://diego-pacheco.blogspot.com.br/" title="Tech Blog on Blogger">Tech Blog</a></p>
                 <p><img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/substack_logo.png" alt="Substack" /><a href="https://diegopachecotech.substack.com/" title="diegopachecotech on Substack">Substack</a></p>
                 <p><img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/medium_logo.png" alt="Medium" /><a href="https://diego-pacheco.medium.com/" title="diego-pacheco on Medium">Medium</a></p>
+                <p><img src="https://cdn1.iconfinder.com/data/icons/logotypes/32/youtube-512.png" alt="YouTube" /><a href="https://tinyurl.com/diegopacheco" title="Diego Pacheco Youtube Channel">Youtube Channel</a></p>
+                <p><img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/twitter-logo.png" alt="Twitter" /><a href="https://twitter.com/diego_pacheco" title="@diego_pacheco on Twitter">@diego_pacheco</a></p>
+                <p><img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/twitter-logo.png" alt="Bluesky" /><a href="https://bsky.app/profile/diegopacheco.bsky.social" title="diegopacheco.bsky.social on Bluesky">bsky.social</a></p>
                 <p><img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/HN.png" alt="Hacker News" /><a href="https://news.ycombinator.com/submitted?id=diegopacheco" title="diegopacheco on Hacker News">Hacker News</a></p>
                 <p><img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/slideshare-logo.jpg" alt="SlideShare" /><a href="http://www.slideshare.net/diego.pacheco/presentations" title="diego.pacheco on SlideShare">SlideShare</a></p>
-                <p><img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/vimeo2.png" alt="Vimeo" /><a href="https://vimeo.com/channels/pacheco" title="pacheco on Vimeo">Vimeo</a></p>
                 <p><img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/DockerHub.jpg" alt="DockerHub" /><a href="https://hub.docker.com/u/diegopacheco/" title="diegopacheco on DockerHub">DockerHub</a></p>
+                <p><img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/vimeo2.png" alt="Vimeo" /><a href="https://vimeo.com/channels/pacheco" title="pacheco on Vimeo">Vimeo</a></p>
             </aside>
 
             <section class="details-column">
@@ -295,50 +326,52 @@
                         </ul>
                     </article>
                 </div>
-
-                <article id="lectures" class="lectures-section">
-                    <h2>🔉Recent Lectures</h2>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th width="33.33%">2018</th>
-                                <th width="33.33%">2016</th>
-                                <th width="33.33%">2015</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <ul>
-                                        <li><a href="https://www.slideshare.net/diego.pacheco/experiences-building-a-multi-region-cassandra-operations-orchestrator-on-aws">Meetup AWS POA</a></li>
-                                    </ul>
-                                </td>
-                                <td>
-                                    <ul>
-                                        <li><a href="https://www.youtube.com/watch?v=Z4_rzsZd70o&feature=youtu.be">Netflix</a></li>
-                                        <li><a href="https://www.infoq.com/br/presentations/microservices-reativos-usando-a-stack-do-netflix-na-aws">QCon SP</a></li>
-                                        <li><a href="http://www.meetup.com/Sao-Paulo-Amazon-Web-Services-AWS-Meetup/events/229283010">AWS SP Meetup</a></li>
-                                    </ul>
-                                </td>
-                                <td>
-                                    <ul>
-                                        <li><a href="https://www.infoq.com/br/presentations/vivenciando-devops">QCon SP</a></li>
-                                        <li><a href="https://agilebrazil2015.sched.com/event/4DE2">Agile Brazil</a></li>
-                                    </ul>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </article>
-
-                <article id="papers">
-                    <h2>📜 Papers (2019)</h2>
-                    <ul class="papers-list">
-                        <li><a href="https://ilegra.com/wp-content/uploads/2019/10/Arquitetura-Valor-e-Negócio.pdf">Arch, Business & Value</a></li>
-                        <li><a href="https://ilegra.com/wp-content/uploads/2019/10/Paper-Multicloud.pdf">Multi/Poly Cloud</a></li>
-                        <li><a href="https://ilegra.com/wp-content/uploads/2019/10/Paper-Frontend.pdf">Micro Frontends & SRR</a></li>
-                    </ul>
-                </article>
+                
+                <div class="lectures-papers-container">
+                    <article id="lectures" class="lectures-section">
+                        <h2>🔉Recent Lectures</h2>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>2018</th>
+                                    <th>2016</th>
+                                    <th>2015</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <ul>
+                                            <li><a href="https://www.slideshare.net/diego.pacheco/experiences-building-a-multi-region-cassandra-operations-orchestrator-on-aws">Meetup AWS POA</a></li>
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <ul>
+                                            <li><a href="https://www.youtube.com/watch?v=Z4_rzsZd70o&feature=youtu.be">Netflix</a></li>
+                                            <li><a href="https://www.infoq.com/br/presentations/microservices-reativos-usando-a-stack-do-netflix-na-aws">QCon SP</a></li>
+                                            <li><a href="http://www.meetup.com/Sao-Paulo-Amazon-Web-Services-AWS-Meetup/events/229283010">AWS SP Meetup</a></li>
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <ul>
+                                            <li><a href="https://www.infoq.com/br/presentations/vivenciando-devops">QCon SP</a></li>
+                                            <li><a href="https://agilebrazil2015.sched.com/event/4DE2">Agile Brazil</a></li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </article>
+    
+                    <article id="papers">
+                        <h2>📜 Papers (2019)</h2>
+                        <ul class="papers-list">
+                            <li><a href="https://ilegra.com/wp-content/uploads/2019/10/Arquitetura-Valor-e-Negócio.pdf">Arch, Business & Value</a></li>
+                            <li><a href="https://ilegra.com/wp-content/uploads/2019/10/Paper-Multicloud.pdf">Multi/Poly Cloud</a></li>
+                            <li><a href="https://ilegra.com/wp-content/uploads/2019/10/Paper-Frontend.pdf">Micro Frontends & SRR</a></li>
+                        </ul>
+                    </article>
+                </div>
 
             </section>
         </div>
