@@ -154,6 +154,7 @@
             display: flex;
             flex-direction: row;
             gap: 24px;
+            align-items: flex-start;
         }
         .hero-right-main {
             flex: 1 1 auto;
@@ -162,13 +163,12 @@
             gap: 24px;
         }
         .side-projects-stack {
-            align-self: flex-start;
+            flex: 0 0 170px;
             max-width: 170px;
             width: 100%;
             display: flex;
             flex-direction: column;
             gap: 8px;
-            margin-top: 8px;
         }
         .side-projects-stack h3 {
             margin: 0;
@@ -177,7 +177,7 @@
         }
         .side-projects-list {
             position: relative;
-            min-height: 150px;
+            min-height: 160px;
             padding-right: 6px;
             overflow: hidden;
         }
@@ -186,7 +186,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            min-height: 120px;
+            min-height: 110px;
             display: flex;
             flex-direction: column;
             gap: 6px;
@@ -199,17 +199,17 @@
             transition: transform 0.35s ease, box-shadow 0.35s ease;
             text-decoration: none;
             color: #fff;
-            transform: translateY(calc(var(--stack-index, 0) * 12px));
+            transform: translateY(calc(var(--stack-index, 0) * 10px));
             z-index: calc(30 - var(--stack-index, 0));
             pointer-events: none;
         }
         .side-project-card.is-active {
-            pointer-events: auto;
             box-shadow: 0 20px 45px rgba(15, 23, 42, 0.6);
+            pointer-events: auto;
         }
         .side-project-card:hover {
             box-shadow: 0 18px 32px rgba(15, 23, 42, 0.6);
-            transform: translateY(calc(var(--stack-index, 0) * 12px - 4px));
+            transform: translateY(calc(var(--stack-index, 0) * 10px - 4px));
         }
         .side-project-card-header {
             display: flex;
@@ -273,29 +273,29 @@
             overflow: hidden;
         }
         .mini-card {
-            flex: 0 0 calc((100% - 28px) / 8);
+            flex: 0 0 calc(((100% - 28px) / 8) * 0.8);
             margin-right: 0;
-            border-radius: 16px;
+            border-radius: 14px;
             background: rgba(17, 25, 64, 0.75);
             box-shadow: 0 10px 24px rgba(13, 20, 50, 0.45);
-            padding: 10px;
+            padding: 8px;
             position: relative;
             text-align: center;
             color: #fff;
-            font-size: 0.72rem;
+            font-size: 0.65rem;
             font-weight: 600;
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 6px;
             align-items: center;
             transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
             opacity: 1;
-            transform: scale(0.94);
+            transform: scale(0.92);
         }
         .mini-card img {
-            width: 44px;
-            height: 44px;
-            border-radius: 12px;
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
             margin-bottom: 0;
             border: none;
             padding: 0;
@@ -311,7 +311,7 @@
             transition: opacity 0.25s ease;
         }
         .mini-card:hover {
-            transform: translateY(-6px) scale(1.35);
+            transform: translateY(-6px) scale(1.2);
             box-shadow: 0 22px 40px rgba(13, 20, 50, 0.6);
             background: rgba(17, 25, 64, 1);
             opacity: 1;
@@ -338,18 +338,18 @@
             user-select: none;
         }
         .book-card {
-            flex: 0 0 240px;
+            flex: 0 0 190px;
             border-radius: 18px;
             background: rgba(255, 255, 255, 0.12);
             box-shadow: 0 8px 24px rgba(15, 23, 42, 0.25);
-            padding: 8px;
-            margin-right: 20px;
+            padding: 6px;
+            margin-right: 16px;
             position: relative;
             transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
             opacity: 0.9;
         }
         .book-card + .book-card {
-            margin-left: -140px;
+            margin-left: -112px;
             z-index: 1;
         }
         .book-card:hover {
@@ -360,7 +360,7 @@
         }
         .book-card img {
             width: 100%;
-            height: 280px;
+            height: 224px;
             object-fit: cover;
             border-radius: 12px;
             border: 1px solid rgba(255, 255, 255, 0.35);
@@ -508,174 +508,176 @@
                     </div>
                 </div>
                 <p class="hero-description">Brazilian software architect, SOA expert, DevOps practitioner, author, mentor, and speaker.</p>
-                <div class="side-projects-stack">
-                    <h3>🥇 Tiny Side Projects</h3>
-                    <div class="side-projects-list">
-                        <a class="side-project-card" href="https://github.com/diegopacheco/tupilang" title="Tupi lang on GitHub">
-                            <div class="side-project-card-header">
-                                <span class="side-project-emoji" aria-hidden="true">🧝🏾‍♂️</span>
-                                <div>
-                                    <p class="side-project-name">Tupi lang</p>
-                                    <p class="side-project-desc">Java 23 PL</p>
-                                </div>
-                            </div>
-                            <span class="side-project-link">tupilang</span>
-                        </a>
-                        <a class="side-project-card" href="https://github.com/diegopacheco/jello" title="Jello on GitHub">
-                            <div class="side-project-card-header">
-                                <span class="side-project-emoji" aria-hidden="true">🥫</span>
-                                <div>
-                                    <p class="side-project-name">Jello</p>
-                                    <p class="side-project-desc">Vanilla JS Trello</p>
-                                </div>
-                            </div>
-                            <span class="side-project-link">jello</span>
-                        </a>
-                        <a class="side-project-card" href="https://github.com/diegopacheco/zim" title="Zim on GitHub">
-                            <div class="side-project-card-header">
-                                <span class="side-project-emoji" aria-hidden="true">📑</span>
-                                <div>
-                                    <p class="side-project-name">Zim</p>
-                                    <p class="side-project-desc">Zig 0.13 vim-like</p>
-                                </div>
-                            </div>
-                            <span class="side-project-link">zim</span>
-                        </a>
-                        <a class="side-project-card" href="https://github.com/diegopacheco/gorminator" title="Gorminator on GitHub">
-                            <div class="side-project-card-header">
-                                <span class="side-project-emoji" aria-hidden="true">💻</span>
-                                <div>
-                                    <p class="side-project-name">Gorminator</p>
-                                    <p class="side-project-desc">Go Linux terminal</p>
-                                </div>
-                            </div>
-                            <span class="side-project-link">gorminator</span>
-                        </a>
-                        <a class="side-project-card" href="https://github.com/diegopacheco/kit" title="kit on GitHub">
-                            <div class="side-project-card-header">
-                                <span class="side-project-emoji" aria-hidden="true">😸</span>
-                                <div>
-                                    <p class="side-project-name">kit</p>
-                                    <p class="side-project-desc">Git-like in Kotlin</p>
-                                </div>
-                            </div>
-                            <span class="side-project-link">kit</span>
-                        </a>
-                        <a class="side-project-card" href="https://github.com/diegopacheco/shrust" title="Shrust on GitHub">
-                            <div class="side-project-card-header">
-                                <span class="side-project-emoji" aria-hidden="true">🦀</span>
-                                <div>
-                                    <p class="side-project-name">Shrust</p>
-                                    <p class="side-project-desc">Rust compression</p>
-                                </div>
-                            </div>
-                            <span class="side-project-link">shrust</span>
-                        </a>
-                        <a class="side-project-card" href="https://github.com/diegopacheco/smith" title="Smith on GitHub">
-                            <div class="side-project-card-header">
-                                <span class="side-project-emoji" aria-hidden="true">🕵🏽</span>
-                                <div>
-                                    <p class="side-project-name">Smith</p>
-                                    <p class="side-project-desc">Scala 3 security agent</p>
-                                </div>
-                            </div>
-                            <span class="side-project-link">smith</span>
-                        </a>
-                        <a class="side-project-card" href="https://github.com/diegopacheco/zos" title="ZOS on GitHub">
-                            <div class="side-project-card-header">
-                                <span class="side-project-emoji" aria-hidden="true">📟</span>
-                                <div>
-                                    <p class="side-project-name">ZOS</p>
-                                    <p class="side-project-desc">Tiny Zig OS</p>
-                                </div>
-                            </div>
-                            <span class="side-project-link">zos</span>
-                        </a>
-                        <a class="side-project-card" href="https://gist.github.com/diegopacheco/d48104e8f584e3209ce7d5f5c0186e0e" title="Tiny Games Collection">
-                            <div class="side-project-card-header">
-                                <span class="side-project-emoji" aria-hidden="true">🎮</span>
-                                <div>
-                                    <p class="side-project-name">Tiny Games</p>
-                                    <p class="side-project-desc">Collection of JS games</p>
-                                </div>
-                            </div>
-                            <span class="side-project-link">Tiny Games</span>
-                        </a>
-                    </div>
-                </div>
             </div>
             <div class="hero-right">
                 <div class="hero-right-main">
-                    <div class="mini-carousel">
-                        <h3>📝 Tiny Essays</h3>
-                        <div class="books-slider mini-slider" id="essays-slider">
-                            <a class="mini-card" href="https://gist.github.com/diegopacheco/4b7dfeb781ad3455ae2a6b090d9deaa7" title="Rust essay">
+                    <div class="mini-carousel-and-stack" style="display:flex;gap:16px;align-items:flex-start;">
+                        <div class="mini-carousel">
+                            <h3>📝 Tiny Essays</h3>
+                            <div class="books-slider mini-slider" id="essays-slider">
+                            <a class="mini-card" href="https://gist.github.com/diegopacheco/4b7dfeb781ad3455ae2a6b090d9deaa7" title="Rust essay" target="_blank" rel="noopener noreferrer">
                                 <img src="https://emojis.slackmojis.com/emojis/images/1643514229/1965/rust.png?1643514229" alt="Rust icon" />
                                 <span class="mini-label">Rust</span>
                             </a>
-                            <a class="mini-card" href="https://gist.github.com/diegopacheco/1b5df4287dd1ce4276631fd630267311" title="Scala essay">
+                        <a class="mini-card" href="https://gist.github.com/diegopacheco/1b5df4287dd1ce4276631fd630267311" title="Scala essay" target="_blank" rel="noopener noreferrer">
                                 <img src="https://slackmojis.com/emojis/1857-scala/download" alt="Scala icon" />
                                 <span class="mini-label">Scala</span>
                             </a>
-                            <a class="mini-card" href="https://gist.github.com/diegopacheco/7d7c8110db68352d58a18b0e3e3c2bb0" title="Zig essay">
+                        <a class="mini-card" href="https://gist.github.com/diegopacheco/7d7c8110db68352d58a18b0e3e3c2bb0" title="Zig essay" target="_blank" rel="noopener noreferrer">
                                 <img src="https://slackmojis.com/emojis/57099-ziglang/download" alt="Zig icon" />
                                 <span class="mini-label">Zig</span>
                             </a>
-                            <a class="mini-card" href="https://gist.github.com/diegopacheco/f6beabf1451cfe1ec2dc89a19a78fdc5" title="Kotlin essay">
+                        <a class="mini-card" href="https://gist.github.com/diegopacheco/f6beabf1451cfe1ec2dc89a19a78fdc5" title="Kotlin essay" target="_blank" rel="noopener noreferrer">
                                 <img src="https://slackmojis.com/emojis/2351-kotlin/download" alt="Kotlin icon" />
                                 <span class="mini-label">Kotlin</span>
                             </a>
-                            <a class="mini-card" href="https://gist.github.com/diegopacheco/9453877378f007e8903a359f298a0afa" title="Clojure essay">
+                        <a class="mini-card" href="https://gist.github.com/diegopacheco/9453877378f007e8903a359f298a0afa" title="Clojure essay" target="_blank" rel="noopener noreferrer">
                                 <img src="https://slackmojis.com/emojis/378-clojure/download" alt="Clojure icon" />
                                 <span class="mini-label">Clojure</span>
                             </a>
-                            <a class="mini-card" href="https://gist.github.com/diegopacheco/057087dc7ae236bdd0700014a31c88ef" title="Haskell essay">
+                        <a class="mini-card" href="https://gist.github.com/diegopacheco/057087dc7ae236bdd0700014a31c88ef" title="Haskell essay" target="_blank" rel="noopener noreferrer">
                                 <img src="https://slackmojis.com/emojis/22333-haskell/download" alt="Haskell icon" />
                                 <span class="mini-label">Haskell</span>
                             </a>
-                            <a class="mini-card" href="https://gist.github.com/diegopacheco/0fb84d881e2423147d9cb6f8619bf473" title="Nim essay">
+                        <a class="mini-card" href="https://gist.github.com/diegopacheco/0fb84d881e2423147d9cb6f8619bf473" title="Nim essay" target="_blank" rel="noopener noreferrer">
                                 <img src="https://slackmojis.com/emojis/63427-nim/download" alt="Nim icon" />
                                 <span class="mini-label">Nim</span>
                             </a>
-                            <a class="mini-card" href="https://gist.github.com/diegopacheco/3d0b176eb83e569da582a0770209e22f" title="V essay">
+                            <a class="mini-card" href="https://gist.github.com/diegopacheco/3d0b176eb83e569da582a0770209e22f" title="V essay" target="_blank" rel="noopener noreferrer">
                                 <img src="https://vlang.io/img/v-logo.png" alt="V icon" />
                                 <span class="mini-label">V</span>
                             </a>
+                            </div>
                         </div>
+                        <aside class="side-projects-stack">
+                            <h3>🥇 Tiny Side Projects</h3>
+                            <div class="side-projects-list">
+                                <a class="side-project-card" href="https://github.com/diegopacheco/tupilang" title="Tupi lang on GitHub" target="_blank" rel="noopener noreferrer">
+                                    <div class="side-project-card-header">
+                                        <span class="side-project-emoji" aria-hidden="true">🧝🏾‍♂️</span>
+                                        <div>
+                                            <p class="side-project-name">Tupi lang</p>
+                                            <p class="side-project-desc">Java 23 PL</p>
+                                        </div>
+                                    </div>
+                                    <span class="side-project-link">tupilang</span>
+                                </a>
+                                <a class="side-project-card" href="https://github.com/diegopacheco/jello" title="Jello on GitHub" target="_blank" rel="noopener noreferrer">
+                                    <div class="side-project-card-header">
+                                        <span class="side-project-emoji" aria-hidden="true">🥫</span>
+                                        <div>
+                                            <p class="side-project-name">Jello</p>
+                                            <p class="side-project-desc">Vanilla JS Trello</p>
+                                        </div>
+                                    </div>
+                                    <span class="side-project-link">jello</span>
+                                </a>
+                                <a class="side-project-card" href="https://github.com/diegopacheco/zim" title="Zim on GitHub" target="_blank" rel="noopener noreferrer">
+                                    <div class="side-project-card-header">
+                                        <span class="side-project-emoji" aria-hidden="true">📑</span>
+                                        <div>
+                                            <p class="side-project-name">Zim</p>
+                                            <p class="side-project-desc">Zig 0.13 vim-like</p>
+                                        </div>
+                                    </div>
+                                    <span class="side-project-link">zim</span>
+                                </a>
+                                <a class="side-project-card" href="https://github.com/diegopacheco/gorminator" title="Gorminator on GitHub" target="_blank" rel="noopener noreferrer">
+                                    <div class="side-project-card-header">
+                                        <span class="side-project-emoji" aria-hidden="true">💻</span>
+                                        <div>
+                                            <p class="side-project-name">Gorminator</p>
+                                            <p class="side-project-desc">Go Linux terminal</p>
+                                        </div>
+                                    </div>
+                                    <span class="side-project-link">gorminator</span>
+                                </a>
+                                <a class="side-project-card" href="https://github.com/diegopacheco/kit" title="kit on GitHub" target="_blank" rel="noopener noreferrer">
+                                    <div class="side-project-card-header">
+                                        <span class="side-project-emoji" aria-hidden="true">😸</span>
+                                        <div>
+                                            <p class="side-project-name">kit</p>
+                                            <p class="side-project-desc">Git-like in Kotlin</p>
+                                        </div>
+                                    </div>
+                                    <span class="side-project-link">kit</span>
+                                </a>
+                                <a class="side-project-card" href="https://github.com/diegopacheco/shrust" title="Shrust on GitHub" target="_blank" rel="noopener noreferrer">
+                                    <div class="side-project-card-header">
+                                        <span class="side-project-emoji" aria-hidden="true">🦀</span>
+                                        <div>
+                                            <p class="side-project-name">Shrust</p>
+                                            <p class="side-project-desc">Rust compression</p>
+                                        </div>
+                                    </div>
+                                    <span class="side-project-link">shrust</span>
+                                </a>
+                                <a class="side-project-card" href="https://github.com/diegopacheco/smith" title="Smith on GitHub" target="_blank" rel="noopener noreferrer">
+                                    <div class="side-project-card-header">
+                                        <span class="side-project-emoji" aria-hidden="true">🕵🏽</span>
+                                        <div>
+                                            <p class="side-project-name">Smith</p>
+                                            <p class="side-project-desc">Scala 3 security agent</p>
+                                        </div>
+                                    </div>
+                                    <span class="side-project-link">smith</span>
+                                </a>
+                                <a class="side-project-card" href="https://github.com/diegopacheco/zos" title="ZOS on GitHub" target="_blank" rel="noopener noreferrer">
+                                    <div class="side-project-card-header">
+                                        <span class="side-project-emoji" aria-hidden="true">📟</span>
+                                        <div>
+                                            <p class="side-project-name">ZOS</p>
+                                            <p class="side-project-desc">Tiny Zig OS</p>
+                                        </div>
+                                    </div>
+                                    <span class="side-project-link">zos</span>
+                                </a>
+                                <a class="side-project-card" href="https://gist.github.com/diegopacheco/d48104e8f584e3209ce7d5f5c0186e0e" title="Tiny Games Collection" target="_blank" rel="noopener noreferrer">
+                                    <div class="side-project-card-header">
+                                        <span class="side-project-emoji" aria-hidden="true">🎮</span>
+                                        <div>
+                                            <p class="side-project-name">Tiny Games</p>
+                                            <p class="side-project-desc">Collection of JS games</p>
+                                        </div>
+                                    </div>
+                                    <span class="side-project-link">Tiny Games</span>
+                                </a>
+                            </div>
+                        </aside>
                     </div>
-
                     <div class="published-works">
                         <h2>Published Books & Video Series</h2>
                         <div class="books-carousel">
                             <div class="books-slider" id="books-slider">
-                                <a class="book-card" href="https://diegopacheco.github.io/The-Art-of-Sense-A-Philosophy-of-Modern-AI/">
+                                <a class="book-card" href="https://diegopacheco.github.io/The-Art-of-Sense-A-Philosophy-of-Modern-AI/" target="_blank" rel="noopener noreferrer">
                                     <img src="images/book-cover-AOS-2025-AI.png" alt="Diego Pacheco's The Art of Sense: A Philosophy of Modern AI" />
                                 </a>
-                                <a class="book-card" href="https://diegopacheco.github.io/diegopacheco-architecture-library/introduction.html">
+                                <a class="book-card" href="https://diegopacheco.github.io/diegopacheco-architecture-library/introduction.html" target="_blank" rel="noopener noreferrer">
                                     <img src="images/book-4-2025-cover.png" alt="Diego Pacheco's Software Architecture Library Book" />
                                 </a>
-                                <a class="book-card" href="https://www.amazon.com/Continuous-Modernization-never-ending-microservices-distributed-ebook/dp/B0DHS63NQH/">
+                                <a class="book-card" href="https://www.amazon.com/Continuous-Modernization-never-ending-microservices-distributed-ebook/dp/B0DHS63NQH/" target="_blank" rel="noopener noreferrer">
                                     <img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/book-cm-2024.png" alt="Continuous Modernization Book" />
                                 </a>
-                                <a class="book-card" href="https://bpbonline.com/products/principles-of-software-architecture-modernization">
+                                <a class="book-card" href="https://bpbonline.com/products/principles-of-software-architecture-modernization" target="_blank" rel="noopener noreferrer">
                                     <img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/book-arch-monoliths-2023.png" alt="Principles of Software Architecture Modernization Book" />
                                 </a>
-                                <a class="book-card" href="https://diegopacheco.github.io/tech-resources/">
+                                <a class="book-card" href="https://diegopacheco.github.io/tech-resources/" target="_blank" rel="noopener noreferrer">
                                     <img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/Tech_Resources_logo.png" alt="Diego Pacheco's Tech Resources" />
                                 </a>
-                                <a class="book-card" href="https://books.apple.com/us/book/building-applications-with-scala/id1113861297">
+                                <a class="book-card" href="https://books.apple.com/us/book/building-applications-with-scala/id1113861297" target="_blank" rel="noopener noreferrer">
                                     <img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/book-cover-scala-2016-2.png" alt="Building Applications with Scala Book" />
                                 </a>
-                                <a class="book-card" href="https://www.packtpub.com/application-development/building-effective-microservices-video">
+                                <a class="book-card" href="https://www.packtpub.com/application-development/building-effective-microservices-video" target="_blank" rel="noopener noreferrer">
                                     <img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/video-cover-microservices-2017.png" alt="Building Effective Microservices Video Series" />
                                 </a>
                             </div>
                             <div class="carousel-controls">
                                 <button id="prev-book">Prev</button>
                                 <button id="next-book">Next</button>
-                            </div>
-                        </div>
                     </div>
+                </div>
+
+            </div>
             </div>
         </header>
 
@@ -692,22 +694,22 @@
         <div class="main-content-area">
             <aside class="socials-column card">
                 <h2>Socials</h2>
-                <p><img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/github-logo.png" alt="GitHub" /><a href="https://github.com/diegopacheco/" title="diegopacheco on GitHub">GitHub</a></p>
-                <p><img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/linkedin-logo.png" alt="LinkedIn" /><a href="https://br.linkedin.com/in/diegopachecors" title="diegopachecors on LinkedIn">LinkedIn</a></p>
-                <p><img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/blogger-logo.png" alt="Blogger" /><a href="http://diego-pacheco.blogspot.com.br/" title="Tech Blog on Blogger">Tech Blog</a></p>
-                <p><img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/substack_logo.png" alt="Substack" /><a href="https://diegopachecotech.substack.com/" title="diegopachecotech on Substack">Substack</a></p>
-                <p><img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/medium_logo.png" alt="Medium" /><a href="https://diego-pacheco.medium.com/" title="diego-pacheco on Medium">Medium</a></p>
-                <p><img src="https://cdn1.iconfinder.com/data/icons/logotypes/32/youtube-512.png" alt="YouTube" /><a href="https://tinyurl.com/diegopacheco" title="Diego Pacheco Youtube Channel">Youtube Channel</a></p>
-                <p><img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/twitter-logo.png" alt="Twitter" /><a href="https://twitter.com/diego_pacheco" title="@diego_pacheco on Twitter">@diego_pacheco</a></p>
-                <p><img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/twitter-logo.png" alt="Bluesky" /><a href="https://bsky.app/profile/diegopacheco.bsky.social" title="diegopacheco.bsky.social on Bluesky">bsky.social</a></p>
-                <p><img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/HN.png" alt="Hacker News" /><a href="https://news.ycombinator.com/submitted?id=diegopacheco" title="diegopacheco on Hacker News">Hacker News</a></p>
-                <p><img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/slideshare-logo.jpg" alt="SlideShare" /><a href="http://www.slideshare.net/diego.pacheco/presentations" title="diego.pacheco on SlideShare">SlideShare</a></p>
-                <p><img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/DockerHub.jpg" alt="DockerHub" /><a href="https://hub.docker.com/u/diegopacheco/" title="diegopacheco on DockerHub">DockerHub</a></p>
-                <p><img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/vimeo2.png" alt="Vimeo" /><a href="https://vimeo.com/channels/pacheco" title="pacheco on Vimeo">Vimeo</a></p>
+                <p><img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/github-logo.png" alt="GitHub" /><a href="https://github.com/diegopacheco/" title="diegopacheco on GitHub" target="_blank" rel="noopener noreferrer">GitHub</a></p>
+                <p><img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/linkedin-logo.png" alt="LinkedIn" /><a href="https://br.linkedin.com/in/diegopachecors" title="diegopachecors on LinkedIn" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+                <p><img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/blogger-logo.png" alt="Blogger" /><a href="http://diego-pacheco.blogspot.com.br/" title="Tech Blog on Blogger" target="_blank" rel="noopener noreferrer">Tech Blog</a></p>
+                <p><img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/substack_logo.png" alt="Substack" /><a href="https://diegopachecotech.substack.com/" title="diegopachecotech on Substack" target="_blank" rel="noopener noreferrer">Substack</a></p>
+                <p><img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/medium_logo.png" alt="Medium" /><a href="https://diego-pacheco.medium.com/" title="diego-pacheco on Medium" target="_blank" rel="noopener noreferrer">Medium</a></p>
+                <p><img src="https://cdn1.iconfinder.com/data/icons/logotypes/32/youtube-512.png" alt="YouTube" /><a href="https://tinyurl.com/diegopacheco" title="Diego Pacheco Youtube Channel" target="_blank" rel="noopener noreferrer">Youtube Channel</a></p>
+                <p><img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/twitter-logo.png" alt="Twitter" /><a href="https://twitter.com/diego_pacheco" title="@diego_pacheco on Twitter" target="_blank" rel="noopener noreferrer">@diego_pacheco</a></p>
+                <p><img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/twitter-logo.png" alt="Bluesky" /><a href="https://bsky.app/profile/diegopacheco.bsky.social" title="diegopacheco.bsky.social on Bluesky" target="_blank" rel="noopener noreferrer">bsky.social</a></p>
+                <p><img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/HN.png" alt="Hacker News" /><a href="https://news.ycombinator.com/submitted?id=diegopacheco" title="diegopacheco on Hacker News" target="_blank" rel="noopener noreferrer">Hacker News</a></p>
+                <p><img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/slideshare-logo.jpg" alt="SlideShare" /><a href="http://www.slideshare.net/diego.pacheco/presentations" title="diego.pacheco on SlideShare" target="_blank" rel="noopener noreferrer">SlideShare</a></p>
+                <p><img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/DockerHub.jpg" alt="DockerHub" /><a href="https://hub.docker.com/u/diegopacheco/" title="diegopacheco on DockerHub" target="_blank" rel="noopener noreferrer">DockerHub</a></p>
+                <p><img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/vimeo2.png" alt="Vimeo" /><a href="https://vimeo.com/channels/pacheco" title="pacheco on Vimeo" target="_blank" rel="noopener noreferrer">Vimeo</a></p>
                 <article id="resources">
                     <h3>🌐 Resources:</h3>
                     <ul class="resources-list">
-                        <li>📚 Amazon (<a href="https://amazon.com/author/diegopacheco">amazon.com/author</a>)</li>
+                        <li>📚 Amazon (<a href="https://amazon.com/author/diegopacheco" target="_blank" rel="noopener noreferrer">amazon.com/author</a>)</li>
                     </ul>
                 </article>
             </aside>
@@ -745,20 +747,20 @@
                                     <tr>
                                         <td>
                                             <ul>
-                                                <li><a href="https://www.slideshare.net/diego.pacheco/experiences-building-a-multi-region-cassandra-operations-orchestrator-on-aws">Meetup AWS POA</a></li>
+                                                <li><a href="https://www.slideshare.net/diego.pacheco/experiences-building-a-multi-region-cassandra-operations-orchestrator-on-aws" target="_blank" rel="noopener noreferrer">Meetup AWS POA</a></li>
                                             </ul>
                                         </td>
                                         <td>
                                             <ul>
-                                                <li><a href="https://www.youtube.com/watch?v=Z4_rzsZd70o&feature=youtu.be">Netflix</a></li>
-                                                <li><a href="https://www.infoq.com/br/presentations/microservices-reativos-usando-a-stack-do-netflix-na-aws">QCon SP</a></li>
-                                                <li><a href="http://www.meetup.com/Sao-Paulo-Amazon-Web-Services-AWS-Meetup/events/229283010">AWS SP Meetup</a></li>
+                                                <li><a href="https://www.youtube.com/watch?v=Z4_rzsZd70o&feature=youtu.be" target="_blank" rel="noopener noreferrer">Netflix</a></li>
+                                                <li><a href="https://www.infoq.com/br/presentations/microservices-reativos-usando-a-stack-do-netflix-na-aws" target="_blank" rel="noopener noreferrer">QCon SP</a></li>
+                                                <li><a href="http://www.meetup.com/Sao-Paulo-Amazon-Web-Services-AWS-Meetup/events/229283010" target="_blank" rel="noopener noreferrer">AWS SP Meetup</a></li>
                                             </ul>
                                         </td>
                                         <td>
                                             <ul>
-                                                <li><a href="https://www.infoq.com/br/presentations/vivenciando-devops">QCon SP</a></li>
-                                                <li><a href="https://agilebrazil2015.sched.com/event/4DE2">Agile Brazil</a></li>
+                                                <li><a href="https://www.infoq.com/br/presentations/vivenciando-devops" target="_blank" rel="noopener noreferrer">QCon SP</a></li>
+                                                <li><a href="https://agilebrazil2015.sched.com/event/4DE2" target="_blank" rel="noopener noreferrer">Agile Brazil</a></li>
                                             </ul>
                                         </td>
                                     </tr>
@@ -769,9 +771,9 @@
                         <article id="papers">
                             <h2>📜 Papers (2019)</h2>
                             <ul class="papers-list">
-                                <li><a href="https://ilegra.com/wp-content/uploads/2019/10/Arquitetura-Valor-e-Negócio.pdf">Arch, Business & Value</a></li>
-                                <li><a href="https://ilegra.com/wp-content/uploads/2019/10/Paper-Multicloud.pdf">Multi/Poly Cloud</a></li>
-                                <li><a href="https://ilegra.com/wp-content/uploads/2019/10/Paper-Frontend.pdf">Micro Frontends & SRR</a></li>
+                                <li><a href="https://ilegra.com/wp-content/uploads/2019/10/Arquitetura-Valor-e-Negócio.pdf" target="_blank" rel="noopener noreferrer">Arch, Business & Value</a></li>
+                                <li><a href="https://ilegra.com/wp-content/uploads/2019/10/Paper-Multicloud.pdf" target="_blank" rel="noopener noreferrer">Multi/Poly Cloud</a></li>
+                                <li><a href="https://ilegra.com/wp-content/uploads/2019/10/Paper-Frontend.pdf" target="_blank" rel="noopener noreferrer">Micro Frontends & SRR</a></li>
                             </ul>
                         </article>
 
@@ -905,36 +907,33 @@
             }
 
             syncStack();
-            let timer = setInterval(() => step(1), 4500);
+            let timer = null;
+            const INTERVAL = 2000;
 
-            function pause() {
+            function startAuto() {
+                if (!timer) {
+                    step(1);
+                    timer = setInterval(() => step(1), INTERVAL);
+                }
+            }
+            function stopAuto() {
                 if (timer) {
                     clearInterval(timer);
                     timer = null;
                 }
             }
-            function resume() {
-                if (!timer) {
-                    timer = setInterval(() => step(1), 4500);
-                }
-            }
-            function resumeSoon() {
-                resumeTimeout && clearTimeout(resumeTimeout);
-                resumeTimeout = setTimeout(resume, 1500);
-            }
-            let resumeTimeout = null;
 
-            list.addEventListener('mouseenter', pause);
-            list.addEventListener('mouseleave', resume);
+            let isHovering = false;
 
             let dragStart = null;
+            let hoverY = null;
             list.addEventListener('touchstart', e => {
                 dragStart = e.touches[0].clientY;
-                pause();
+                stopAuto();
             }, {passive: true});
             list.addEventListener('touchend', () => {
                 dragStart = null;
-                resume();
+                if (isHovering) startAuto();
             });
             list.addEventListener('touchmove', e => {
                 if (dragStart == null) return;
@@ -947,12 +946,23 @@
 
             list.addEventListener('mousedown', e => {
                 dragStart = e.clientY;
-                pause();
+                stopAuto();
+            });
+            list.addEventListener('mouseenter', e => {
+                hoverY = e.clientY;
+                isHovering = true;
+                startAuto();
+            });
+            list.addEventListener('mouseleave', () => {
+                isHovering = false;
+                stopAuto();
+                hoverY = null;
             });
             window.addEventListener('mouseup', () => {
                 if (dragStart != null) {
                     dragStart = null;
-                    resume();
+                    if (isHovering) startAuto();
+                    hoverY = null;
                 }
             });
             window.addEventListener('mousemove', e => {
@@ -961,18 +971,29 @@
                 if (Math.abs(delta) > 15) {
                     step(delta > 0 ? 1 : -1);
                     dragStart = e.clientY;
+                    hoverY = dragStart;
                 }
             });
-
+            list.addEventListener('mousemove', e => {
+                if (dragStart != null) return;
+                if (!isHovering) return;
+                if (hoverY == null) hoverY = e.clientY;
+                const delta = e.clientY - hoverY;
+                if (Math.abs(delta) > 20) {
+                    step(delta > 0 ? 1 : -1);
+                    hoverY = e.clientY;
+                    startAuto();
+                }
+            });
             window.addEventListener('keydown', e => {
                 if (e.key === 'ArrowDown') {
-                    pause();
+                    stopAuto();
                     step(1);
-                    resumeSoon();
+                    if (isHovering) startAuto();
                 } else if (e.key === 'ArrowUp') {
-                    pause();
+                    stopAuto();
                     step(-1);
-                    resumeSoon();
+                    if (isHovering) startAuto();
                 }
             });
         })();
