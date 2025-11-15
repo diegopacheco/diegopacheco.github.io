@@ -912,7 +912,6 @@
 
             function startAuto() {
                 if (!timer) {
-                    step(1);
                     timer = setInterval(() => step(1), INTERVAL);
                 }
             }
@@ -982,8 +981,14 @@
                 if (Math.abs(delta) > 20) {
                     step(delta > 0 ? 1 : -1);
                     hoverY = e.clientY;
-                    startAuto();
                 }
+            });
+            list.addEventListener('click', e => {
+                const card = e.target.closest('.side-project-card');
+                if (!card) return;
+                e.preventDefault();
+                stopAuto();
+                window.open(card.href, '_blank', 'noopener,noreferrer');
             });
             window.addEventListener('keydown', e => {
                 if (e.key === 'ArrowDown') {
