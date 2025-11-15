@@ -230,9 +230,9 @@
         }
 
         .right-column {
-            flex: 1 1 320px;
-            max-width: 420px;
-            padding-left: 8px;
+            flex: 1 1 360px;
+            max-width: 520px;
+            padding-left: 4px;
             display: flex;
             flex-direction: column;
             gap: 4px;
@@ -250,17 +250,17 @@
         .right-top-row {
             display: flex;
             flex-direction: row;
-            gap: 12px;
+            gap: 16px;
             flex-wrap: nowrap;
-            align-items: flex-start;
+            align-items: stretch;
         }
         .right-top-row #essays {
-            flex: 0 0 38%;
+            flex: 0 0 32%;
             min-width: 200px;
         }
         .right-top-row #projects {
-            flex: 1 1 62%;
-            min-width: 240px;
+            flex: 1 1 68%;
+            min-width: 320px;
         }
 
         .lectures-section table {
@@ -353,6 +353,7 @@
             .right-top-row #essays,
             .right-top-row #projects {
                 flex: 1 1 100%;
+                min-width: auto;
             }
         }
 
