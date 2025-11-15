@@ -163,6 +163,10 @@
             list-style: none;
             padding-left: 0;
         }
+        .skills-list {
+            list-style: disc;
+            padding-left: 16px;
+        }
         .papers-list li { margin-bottom: 1px; }
 
         .side-by-side-container {
@@ -184,9 +188,12 @@
             margin-bottom: 4px;
             align-items: flex-start;
         }
-        .skills-lectures-container > #skills {
+        .skills-column {
             flex-basis: 55%;
             max-width: 55%;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
         }
         .skills-lectures-container > .lectures-column {
             flex-basis: 45%;
@@ -324,19 +331,32 @@
 
             <section class="details-column">
                 <div class="skills-lectures-container">
-                    <article id="skills">
-                        <h3>💻 Core skills and expertise:</h3>
-                        <ul class="skills-list">
-                            <li>Architecture Design and architecture coding for highly scalable systems</li>
-                            <li>Delivering distributed systems using SOA and Microservices principles, tools, and techniques</li>
-                            <li>Driving and executing complex cloud migrations, library and server migrations at scale</li>
-                            <li>Performance tuning, troubleshooting & DevOps engineering</li>
-                            <li>Functional Programming and Scala</li>
-                            <li>Technology Mentor, agile coach & leader for architecture and engineering teams</li>
-                            <li>Consultant on development practices with XP / Kanban</li>
-                            <li>Hire, develop, retain, and truly grow talent at scale</li>
-                        </ul>
-                    </article>
+                    <div class="skills-column">
+                        <article id="skills">
+                            <h3>💻 Core skills and expertise:</h3>
+                            <ul class="skills-list">
+                                <li>Architecture Design and architecture coding for highly scalable systems</li>
+                                <li>Delivering distributed systems using SOA and Microservices principles, tools, and techniques</li>
+                                <li>Driving and executing complex cloud migrations, library and server migrations at scale</li>
+                                <li>Performance tuning, troubleshooting & DevOps engineering</li>
+                                <li>Functional Programming and Scala</li>
+                                <li>Technology Mentor, agile coach & leader for architecture and engineering teams</li>
+                                <li>Consultant on development practices with XP / Kanban</li>
+                                <li>Hire, develop, retain, and truly grow talent at scale</li>
+                            </ul>
+                        </article>
+
+                        <article id="resources">
+                            <h3>🌐 Resources:</h3>
+                            <ul class="resources-list">
+                                <li>📝Blogger(<a href="https://diego-pacheco.blogspot.com/">diego-pacheco.blogspot.com</a>)</li>
+                                <li>📝Medium(<a href="https://diego-pacheco.medium.com/">diego-pacheco.medium.com</a>)</li>
+                                <li>📚Amazon Author(<a href="https://amazon.com/author/diegopacheco">amazon.com/author/diegopacheco</a>)</li>
+                                <li>🐦Twitter/X (<a href="https://twitter.com/diego_pacheco">twitter.com/diego_pacheco</a>)</li>
+                                <li>📺YouTube Tech Channel (<a href="https://www.youtube.com/channel/UC81qdxTnQWQxw73_CmIZAjg/videos">youtube.com/...</a>)</li>
+                            </ul>
+                        </article>
+                    </div>
 
                     <div class="lectures-column">
                         <article id="lectures" class="lectures-section">
