@@ -74,7 +74,7 @@
             color: #fff;
         }
         .hero-left {
-            flex: 1 1 100%;
+            flex: 1 1 360px;
             display: flex;
             flex-direction: column;
             gap: 16px;
@@ -142,17 +142,91 @@
         }
 
         .hero-right {
-            flex: 1 1 100%;
-            width: 100%;
+            flex: 2 1 640px;
+            width: auto;
             min-width: 0;
             background: rgba(15, 23, 42, 0.3);
             border-radius: 24px;
             padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
         }
         .published-works {
             display: flex;
             flex-direction: column;
             gap: 16px;
+        }
+        .mini-carousel {
+            position: relative;
+            overflow: hidden;
+        }
+        .mini-carousel h3 {
+            margin: 0 0 8px;
+            color: #fff;
+        }
+        .mini-slider {
+            display: flex;
+            gap: 0;
+            cursor: grab;
+            user-select: none;
+            transition: transform 0.3s ease;
+            will-change: transform;
+        }
+        .mini-card {
+            flex: 0 0 190px;
+            margin-right: 20px;
+            border-radius: 18px;
+            background: rgba(17, 25, 64, 0.75);
+            box-shadow: 0 12px 28px rgba(13, 20, 50, 0.45);
+            padding: 16px 14px;
+            position: relative;
+            text-align: center;
+            color: #fff;
+            font-size: 0.82rem;
+            font-weight: 600;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            align-items: center;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
+            opacity: 1;
+            transform: scale(0.93);
+        }
+        .mini-card + .mini-card {
+            margin-left: -135px;
+            z-index: 1;
+        }
+        .mini-card img {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            margin-bottom: 0;
+            border: none;
+            padding: 0;
+            background: transparent;
+            transition: transform 0.25s ease;
+        }
+        .mini-label {
+            display: block;
+            font-size: 0.74rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            opacity: 0.85;
+            transition: opacity 0.25s ease;
+        }
+        .mini-card:hover {
+            transform: translateY(-6px) scale(1.24);
+            box-shadow: 0 18px 36px rgba(13, 20, 50, 0.55);
+            background: rgba(17, 25, 64, 0.98);
+            opacity: 1;
+            z-index: 10;
+        }
+        .mini-card:hover img {
+            transform: scale(1.32);
+        }
+        .mini-card:hover .mini-label {
+            opacity: 1;
         }
         .books-carousel {
             position: relative;
@@ -331,6 +405,44 @@
                 <p class="hero-description">Brazilian software architect, SOA expert, DevOps practitioner, author, mentor, and speaker.</p>
             </div>
             <div class="hero-right">
+                <div class="mini-carousel">
+                    <h3>📝 Tiny Essays</h3>
+                    <div class="books-slider mini-slider" id="essays-slider">
+                        <a class="mini-card" href="https://gist.github.com/diegopacheco/4b7dfeb781ad3455ae2a6b090d9deaa7" title="Rust essay">
+                            <img src="https://emojis.slackmojis.com/emojis/images/1643514229/1965/rust.png?1643514229" alt="Rust icon" />
+                            <span class="mini-label">Rust</span>
+                        </a>
+                        <a class="mini-card" href="https://gist.github.com/diegopacheco/1b5df4287dd1ce4276631fd630267311" title="Scala essay">
+                            <img src="https://slackmojis.com/emojis/1857-scala/download" alt="Scala icon" />
+                            <span class="mini-label">Scala</span>
+                        </a>
+                        <a class="mini-card" href="https://gist.github.com/diegopacheco/7d7c8110db68352d58a18b0e3e3c2bb0" title="Zig essay">
+                            <img src="https://slackmojis.com/emojis/57099-ziglang/download" alt="Zig icon" />
+                            <span class="mini-label">Zig</span>
+                        </a>
+                        <a class="mini-card" href="https://gist.github.com/diegopacheco/f6beabf1451cfe1ec2dc89a19a78fdc5" title="Kotlin essay">
+                            <img src="https://slackmojis.com/emojis/2351-kotlin/download" alt="Kotlin icon" />
+                            <span class="mini-label">Kotlin</span>
+                        </a>
+                        <a class="mini-card" href="https://gist.github.com/diegopacheco/9453877378f007e8903a359f298a0afa" title="Clojure essay">
+                            <img src="https://slackmojis.com/emojis/378-clojure/download" alt="Clojure icon" />
+                            <span class="mini-label">Clojure</span>
+                        </a>
+                        <a class="mini-card" href="https://gist.github.com/diegopacheco/057087dc7ae236bdd0700014a31c88ef" title="Haskell essay">
+                            <img src="https://slackmojis.com/emojis/22333-haskell/download" alt="Haskell icon" />
+                            <span class="mini-label">Haskell</span>
+                        </a>
+                        <a class="mini-card" href="https://gist.github.com/diegopacheco/0fb84d881e2423147d9cb6f8619bf473" title="Nim essay">
+                            <img src="https://slackmojis.com/emojis/63427-nim/download" alt="Nim icon" />
+                            <span class="mini-label">Nim</span>
+                        </a>
+                        <a class="mini-card" href="https://gist.github.com/diegopacheco/3d0b176eb83e569da582a0770209e22f" title="V essay">
+                            <img src="https://vlang.io/img/v-logo.png" alt="V icon" />
+                            <span class="mini-label">V</span>
+                        </a>
+                    </div>
+                </div>
+
                 <div class="published-works">
                     <h2>Published Books & Video Series</h2>
                     <div class="books-carousel">
@@ -475,22 +587,6 @@
             </section>
 
             <aside class="right-column card">
-                <div class="right-top-row">
-                    <article id="essays">
-                        <h3>📝 Tiny Essays</h3>
-                        <ul class="essays-list">
-                            <li><img class="icon" src="https://emojis.slackmojis.com/emojis/images/1643514229/1965/rust.png?1643514229" alt="Rust icon"> Rust <a href="https://gist.github.com/diegopacheco/4b7dfeb781ad3455ae2a6b090d9deaa7">gist</a></li>
-                            <li><img class="icon" src="https://slackmojis.com/emojis/1857-scala/download" alt="Scala icon"> Scala <a href="https://gist.github.com/diegopacheco/1b5df4287dd1ce4276631fd630267311">gist</a></li>
-                            <li><img class="icon" src="https://slackmojis.com/emojis/57099-ziglang/download" alt="Zig icon"> Zig <a href="https://gist.github.com/diegopacheco/7d7c8110db68352d58a18b0e3e3c2bb0">gist</a></li>
-                            <li><img class="icon" src="https://slackmojis.com/emojis/2351-kotlin/download" alt="Kotlin icon"> Kotlin <a href="https://gist.github.com/diegopacheco/f6beabf1451cfe1ec2dc89a19a78fdc5">gist</a></li>
-                            <li><img class="icon" src="https://slackmojis.com/emojis/378-clojure/download" alt="Clojure icon"> Clojure <a href="https://gist.github.com/diegopacheco/9453877378f007e8903a359f298a0afa">gist</a></li>
-                            <li><img class="icon" src="https://slackmojis.com/emojis/22333-haskell/download" alt="Haskell icon"> Haskell <a href="https://gist.github.com/diegopacheco/057087dc7ae236bdd0700014a31c88ef">gist</a></li>
-                            <li><img class="icon" src="https://slackmojis.com/emojis/63427-nim/download" alt="Nim icon"> Nim <a href="https://gist.github.com/diegopacheco/0fb84d881e2423147d9cb6f8619bf473">gist</a></li>
-                            <li><img class="icon" src="https://vlang.io/img/v-logo.png" alt="V lang icon"> V <a href="https://gist.github.com/diegopacheco/3d0b176eb83e569da582a0770209e22f">gist</a></li>
-                        </ul>
-                    </article>
-                </div>
-
                 <article id="projects">
                     <h3>🥇 Tiny Side Projects</h3>
                     <ul class="projects-list">
@@ -582,6 +678,67 @@
             });
 
             clampIndex();
+            update();
+        })();
+
+        (function(){
+            const slider = document.getElementById('essays-slider');
+            if(!slider) return;
+            const cards = Array.from(slider.querySelectorAll('.mini-card'));
+            const OVERLAP = 135;
+            let index = 0;
+
+            function cardWidth(){
+                return cards[0].getBoundingClientRect().width;
+            }
+
+            function step(){
+                return cardWidth() - OVERLAP;
+            }
+
+            function clamp(){
+                const maxStart = Math.max(0, cards.length - 1);
+                index = Math.min(maxStart, Math.max(0, index));
+            }
+
+            function update(){
+                slider.style.transform = `translateX(${-index * step()}px)`;
+            }
+
+            function scroll(delta){
+                index += delta;
+                clamp();
+                update();
+            }
+
+            let start = null;
+            slider.addEventListener('dragstart', e => e.preventDefault());
+            slider.addEventListener('mousedown', e => start = e.clientX);
+            window.addEventListener('mouseup', () => start = null);
+            window.addEventListener('mousemove', e => {
+                if(start === null) return;
+                const dx = e.clientX - start;
+                if(Math.abs(dx) > 40){
+                    scroll(dx < 0 ? 1 : -1);
+                    start = e.clientX;
+                }
+            });
+            slider.addEventListener('touchstart', e => start = e.touches[0].clientX, {passive:true});
+            slider.addEventListener('touchend', () => start = null);
+            slider.addEventListener('touchmove', e => {
+                if(start === null) return;
+                const dx = e.touches[0].clientX - start;
+                if(Math.abs(dx) > 40){
+                    scroll(dx < 0 ? 1 : -1);
+                    start = e.touches[0].clientX;
+                }
+            }, {passive:true});
+            window.addEventListener('resize', () => {
+                clamp();
+                update();
+            });
+
+            clamp();
             update();
         })();
     </script>
