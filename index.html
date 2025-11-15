@@ -7,13 +7,15 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 2px;
-            font-size: 12px;
-            line-height: 1.1;
+            margin: 8px;
+            font-size: clamp(0.85rem, 1vw, 1rem);
+            line-height: 1.3;
             display: flex;
             flex-direction: column;
-            height: 100vh;
-            overflow: hidden;
+            min-height: 100vh;
+            height: auto;
+            overflow-x: hidden;
+            background-color: #fff;
         }
         h1, h2, h3 {
             margin-top: 2px;
@@ -33,20 +35,24 @@
             flex-direction: column;
             width: 100%;
             flex-grow: 1;
-            overflow: hidden;
+            overflow: visible;
         }
 
         .header-section {
             display: flex;
             flex-direction: row;
-            gap: 4px;
-            margin-bottom: 4px;
+            flex-wrap: wrap;
+            width: 100%;
+            gap: 8px;
+            margin-bottom: 8px;
             flex-shrink: 0;
+            align-items: flex-start;
         }
 
         .profile-info {
-            flex-basis: 25%;
-            max-width: 25%;
+            flex: 1 1 260px;
+            max-width: 420px;
+            min-width: 220px;
             display: flex;
             flex-direction: column;
         }
@@ -55,9 +61,11 @@
             flex-direction: row;
             align-items: center;
             gap: 8px;
+            flex-wrap: wrap;
         }
         .profile-info-content ul {
             margin: 0;
+            flex: 1 1 180px;
         }
         .profile-image-container {
             text-align: center;
@@ -67,8 +75,8 @@
             align-items: center;
             justify-content: center;
             padding: 6px;
-            width: 170px;
-            height: 170px;
+            width: clamp(120px, 20vw, 170px);
+            height: clamp(120px, 20vw, 170px);
             border-radius: 12px;
             overflow: hidden;
         }
@@ -94,17 +102,22 @@
         }
 
         .published-works {
-            flex-basis: 75%;
-            max-width: 75%;
-            overflow-x: hidden;
-            white-space: nowrap;
-            padding-bottom: 2px;
+            flex: 2 1 320px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+            padding-bottom: 4px;
         }
-        .published-works h2 { margin-bottom: 2px; }
+        .published-works h2 {
+            flex-basis: 100%;
+            margin-bottom: 2px;
+        }
         .published-works img {
-            width: 150px;
-            height: 166px;
-            margin-right: 2px;
+            width: 165px;
+            max-width: 28vw;
+            height: 210px;
+            object-fit: cover;
+            margin-right: 0;
             vertical-align: top;
             border: 1px solid #ddd;
         }
@@ -125,16 +138,20 @@
         .main-content-area {
             display: flex;
             flex-direction: row;
-            gap: 4px;
+            flex-wrap: wrap;
+            gap: 8px;
             flex-grow: 1;
-            overflow: hidden;
+            overflow: visible;
+            align-items: flex-start;
         }
 
         .socials-column {
-            flex-basis: 15%;
-            max-width: 15%;
+            flex: 1 1 220px;
+            max-width: 280px;
+            min-width: 200px;
+            max-height: none;
             overflow-y: auto;
-            padding-right: 2px;
+            padding-right: 8px;
             border-right: 1px solid #eee;
         }
         .socials-column h2 { margin-bottom: 2px; }
@@ -150,10 +167,10 @@
         }
 
         .details-column {
-            flex-basis: 55%;
-            max-width: 55%;
-            overflow-y: auto;
-            padding-left: 2px;
+            flex: 2 1 420px;
+            max-width: 700px;
+            overflow: visible;
+            padding-left: 8px;
             display: flex;
             flex-direction: column;
         }
@@ -192,33 +209,34 @@
         .skills-lectures-container {
             display: flex;
             flex-direction: row;
-            gap: 4px;
-            margin-bottom: 4px;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 8px;
             align-items: flex-start;
         }
         .skills-column {
-            flex-basis: 55%;
-            max-width: 55%;
+            flex: 1 1 320px;
+            max-width: 100%;
             display: flex;
             flex-direction: column;
             gap: 4px;
         }
         .skills-lectures-container > .lectures-column {
-            flex-basis: 45%;
-            max-width: 45%;
+            flex: 1 1 320px;
+            max-width: 100%;
             display: flex;
             flex-direction: column;
             gap: 4px;
         }
 
         .right-column {
-            flex-basis: 30%;
-            max-width: 30%;
-            padding-left: 2px;
+            flex: 1 1 260px;
+            max-width: 320px;
+            padding-left: 8px;
             display: flex;
             flex-direction: column;
             gap: 4px;
-            overflow-y: auto;
+            overflow: visible;
         }
         .right-column article {
             margin-bottom: 0;
@@ -228,6 +246,17 @@
             height: 10px;
             margin-right: 2px;
             vertical-align: middle;
+        }
+        .right-top-row {
+            display: flex;
+            flex-direction: row;
+            gap: 8px;
+            flex-wrap: nowrap;
+            align-items: flex-start;
+        }
+        .right-top-row > article {
+            flex: 1 1 0;
+            min-width: 0;
         }
 
         .lectures-section table {
@@ -256,6 +285,68 @@
         #papers h2 { font-size: 14px; margin-bottom: 1px; }
         #papers ul { padding-left: 0; }
         #papers li a { font-size: 12px; }
+
+        @media (max-width: 1100px) {
+            .header-section {
+                gap: 6px;
+            }
+            .profile-info-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .published-works img {
+                width: 45vw;
+                max-width: 45vw;
+            }
+            .main-content-area {
+                flex-direction: column;
+            }
+            .socials-column,
+            .details-column,
+            .right-column {
+                flex: 1 1 100%;
+                max-width: 100%;
+                min-width: auto;
+            }
+            .socials-column {
+                border-right: none;
+                padding-right: 0;
+            }
+            .details-column {
+                padding-left: 0;
+            }
+            .right-column {
+                padding-left: 0;
+            }
+            .right-top-row {
+                flex-direction: column;
+                gap: 6px;
+            }
+        }
+
+        @media (max-width: 700px) {
+            body {
+                margin: 4px;
+            }
+            h1 {
+                font-size: 1.2rem;
+            }
+            .profile-image-container {
+                width: clamp(100px, 40vw, 150px);
+                height: clamp(100px, 40vw, 150px);
+            }
+            .published-works img {
+                width: 100%;
+                max-width: 100%;
+            }
+            .skills-list {
+                padding-left: 20px;
+            }
+            .right-top-row {
+                flex-direction: column;
+                gap: 6px;
+            }
+        }
 
         br { display: none; }
 
@@ -354,16 +445,6 @@
                             </ul>
                         </article>
 
-                        <article id="resources">
-                            <h3>🌐 Resources:</h3>
-                            <ul class="resources-list">
-                                <li>📝Blogger(<a href="https://diego-pacheco.blogspot.com/">diego-pacheco.blogspot.com</a>)</li>
-                                <li>📝Medium(<a href="https://diego-pacheco.medium.com/">diego-pacheco.medium.com</a>)</li>
-                                <li>📚Amazon Author(<a href="https://amazon.com/author/diegopacheco">amazon.com/author/diegopacheco</a>)</li>
-                                <li>🐦Twitter/X (<a href="https://twitter.com/diego_pacheco">twitter.com/diego_pacheco</a>)</li>
-                                <li>📺YouTube Tech Channel (<a href="https://www.youtube.com/channel/UC81qdxTnQWQxw73_CmIZAjg/videos">youtube.com/...</a>)</li>
-                            </ul>
-                        </article>
                     </div>
 
                     <div class="lectures-column">
@@ -425,19 +506,32 @@
             </section>
 
             <aside class="right-column">
-                <article id="essays">
-                    <h3>📝 Tiny Essays</h3>
-                    <ul class="essays-list">
-                        <li><img class="icon" src="https://emojis.slackmojis.com/emojis/images/1643514229/1965/rust.png?1643514229" alt="Rust icon"> Rust <a href="https://gist.github.com/diegopacheco/4b7dfeb781ad3455ae2a6b090d9deaa7">gist</a></li>
-                        <li><img class="icon" src="https://slackmojis.com/emojis/1857-scala/download" alt="Scala icon"> Scala <a href="https://gist.github.com/diegopacheco/1b5df4287dd1ce4276631fd630267311">gist</a></li>
-                        <li><img class="icon" src="https://slackmojis.com/emojis/57099-ziglang/download" alt="Zig icon"> Zig <a href="https://gist.github.com/diegopacheco/7d7c8110db68352d58a18b0e3e3c2bb0">gist</a></li>
-                        <li><img class="icon" src="https://slackmojis.com/emojis/2351-kotlin/download" alt="Kotlin icon"> Kotlin <a href="https://gist.github.com/diegopacheco/f6beabf1451cfe1ec2dc89a19a78fdc5">gist</a></li>
-                        <li><img class="icon" src="https://slackmojis.com/emojis/378-clojure/download" alt="Clojure icon"> Clojure <a href="https://gist.github.com/diegopacheco/9453877378f007e8903a359f298a0afa">gist</a></li>
-                        <li><img class="icon" src="https://slackmojis.com/emojis/22333-haskell/download" alt="Haskell icon"> Haskell <a href="https://gist.github.com/diegopacheco/057087dc7ae236bdd0700014a31c88ef">gist</a></li>
-                        <li><img class="icon" src="https://slackmojis.com/emojis/63427-nim/download" alt="Nim icon"> Nim <a href="https://gist.github.com/diegopacheco/0fb84d881e2423147d9cb6f8619bf473">gist</a></li>
-                        <li><img class="icon" src="https://vlang.io/img/v-logo.png" alt="V lang icon"> V <a href="https://gist.github.com/diegopacheco/3d0b176eb83e569da582a0770209e22f">gist</a></li>
-                    </ul>
-                </article>
+                <div class="right-top-row">
+                    <article id="essays">
+                        <h3>📝 Tiny Essays</h3>
+                        <ul class="essays-list">
+                            <li><img class="icon" src="https://emojis.slackmojis.com/emojis/images/1643514229/1965/rust.png?1643514229" alt="Rust icon"> Rust <a href="https://gist.github.com/diegopacheco/4b7dfeb781ad3455ae2a6b090d9deaa7">gist</a></li>
+                            <li><img class="icon" src="https://slackmojis.com/emojis/1857-scala/download" alt="Scala icon"> Scala <a href="https://gist.github.com/diegopacheco/1b5df4287dd1ce4276631fd630267311">gist</a></li>
+                            <li><img class="icon" src="https://slackmojis.com/emojis/57099-ziglang/download" alt="Zig icon"> Zig <a href="https://gist.github.com/diegopacheco/7d7c8110db68352d58a18b0e3e3c2bb0">gist</a></li>
+                            <li><img class="icon" src="https://slackmojis.com/emojis/2351-kotlin/download" alt="Kotlin icon"> Kotlin <a href="https://gist.github.com/diegopacheco/f6beabf1451cfe1ec2dc89a19a78fdc5">gist</a></li>
+                            <li><img class="icon" src="https://slackmojis.com/emojis/378-clojure/download" alt="Clojure icon"> Clojure <a href="https://gist.github.com/diegopacheco/9453877378f007e8903a359f298a0afa">gist</a></li>
+                            <li><img class="icon" src="https://slackmojis.com/emojis/22333-haskell/download" alt="Haskell icon"> Haskell <a href="https://gist.github.com/diegopacheco/057087dc7ae236bdd0700014a31c88ef">gist</a></li>
+                            <li><img class="icon" src="https://slackmojis.com/emojis/63427-nim/download" alt="Nim icon"> Nim <a href="https://gist.github.com/diegopacheco/0fb84d881e2423147d9cb6f8619bf473">gist</a></li>
+                            <li><img class="icon" src="https://vlang.io/img/v-logo.png" alt="V lang icon"> V <a href="https://gist.github.com/diegopacheco/3d0b176eb83e569da582a0770209e22f">gist</a></li>
+                        </ul>
+                    </article>
+
+                    <article id="resources">
+                        <h3>🌐 Resources:</h3>
+                        <ul class="resources-list">
+                            <li>📝Blogger(<a href="https://diego-pacheco.blogspot.com/">diego-pacheco.blogspot.com</a>)</li>
+                            <li>📝Medium(<a href="https://diego-pacheco.medium.com/">diego-pacheco.medium.com</a>)</li>
+                            <li>📚Amazon Author(<a href="https://amazon.com/author/diegopacheco">amazon.com/author/diegopacheco</a>)</li>
+                            <li>🐦Twitter/X (<a href="https://twitter.com/diego_pacheco">twitter.com/diego_pacheco</a>)</li>
+                            <li>📺YouTube Tech Channel (<a href="https://www.youtube.com/channel/UC81qdxTnQWQxw73_CmIZAjg/videos">youtube.com/...</a>)</li>
+                        </ul>
+                    </article>
+                </div>
 
                 <article id="projects">
                     <h3>🥇 Tiny Side Projects</h3>
