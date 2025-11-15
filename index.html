@@ -50,14 +50,36 @@
             display: flex;
             flex-direction: column;
         }
+        .profile-info-content {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 8px;
+        }
+        .profile-info-content ul {
+            margin: 0;
+        }
         .profile-image-container {
             text-align: center;
             margin-bottom: 2px;
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6px;
+            width: 170px;
+            height: 170px;
+            background-image: url('images/header_photo.jpeg');
+            background-size: cover;
+            background-position: 80% center;
+            background-repeat: no-repeat;
         }
         .profile-image-container img {
-            width: 90px;
-            height: auto;
+            width: 96px;
+            height: 96px;
             border-radius: 50%;
+            position: relative;
+            z-index: 1;
         }
         .profile-info ul {
             list-style-type: square;
@@ -101,7 +123,8 @@
         }
 
         .socials-column {
-            flex-basis: 22%;
+            flex-basis: 15%;
+            max-width: 15%;
             overflow-y: auto;
             padding-right: 2px;
             border-right: 1px solid #eee;
@@ -119,7 +142,8 @@
         }
 
         .details-column {
-            flex-basis: 78%;
+            flex-basis: 55%;
+            max-width: 55%;
             overflow-y: auto;
             padding-left: 2px;
             display: flex;
@@ -129,8 +153,8 @@
             margin-bottom: 4px;
         }
         .details-column img.icon {
-            width: 13px;
-            height: 13px;
+            width: 10px;
+            height: 10px;
             vertical-align: middle;
             margin-right: 2px;
         }
@@ -146,25 +170,49 @@
             flex-direction: row;
             gap: 2px;
             margin-bottom: 4px;
+            align-items: flex-start;
         }
         .side-by-side-container > article {
-            flex-basis: 50%;
+            flex: 1 1 0;
+            min-width: 0;
         }
         
-        .lectures-papers-container {
+        .skills-lectures-container {
             display: flex;
             flex-direction: row;
             gap: 4px;
             margin-bottom: 4px;
+            align-items: flex-start;
         }
-        .lectures-papers-container > article {
-             flex-basis: 50%;
+        .skills-lectures-container > #skills {
+            flex-basis: 55%;
+            max-width: 55%;
         }
-        .lectures-papers-container > #lectures {
-            flex-basis: 60%;
+        .skills-lectures-container > .lectures-column {
+            flex-basis: 45%;
+            max-width: 45%;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
         }
-        .lectures-papers-container > #papers {
-            flex-basis: 40%;
+
+        .right-column {
+            flex-basis: 30%;
+            max-width: 30%;
+            padding-left: 2px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            overflow-y: auto;
+        }
+        .right-column article {
+            margin-bottom: 0;
+        }
+        .right-column img.icon {
+            width: 10px;
+            height: 10px;
+            margin-right: 2px;
+            vertical-align: middle;
         }
 
         .lectures-section table {
@@ -205,19 +253,21 @@
         <header class="header-section">
             <div class="profile-info">
                 <h2>About me</h2>
-                <div class="profile-image-container">
-                    <img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/image-profile.png" alt="Diego Pacheco Profile" />
+                <div class="profile-info-content">
+                    <div class="profile-image-container">
+                        <img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/image-profile.png" alt="Diego Pacheco Profile" />
+                    </div>
+                    <ul>
+                        <li>Father</li>
+                        <li>Cat's Father</li>
+                        <li>Principal Software Architect</li>
+                        <li>SOA Expert</li>
+                        <li>DevOps Practitioner</li>
+                        <li>Author</li>
+                        <li>Mentor</li>
+                        <li>Speaker</li>
+                    </ul>
                 </div>
-                <ul>
-                    <li>Father</li>
-                    <li>Cat's Father</li>
-                    <li>Principal Software Architect</li>
-                    <li>SOA Expert</li>
-                    <li>DevOps Practitioner</li>
-                    <li>Author</li>
-                    <li>Mentor</li>
-                    <li>Speaker</li>
-                </ul>
             </div>
             <div class="published-works">
                 <h2>Published Books & Video Series</h2>
@@ -273,19 +323,67 @@
             </aside>
 
             <section class="details-column">
-                <article id="skills">
-                    <h3>💻 Core skills and expertise:</h3>
-                    <ul class="skills-list">
-                        <li>Architecture Design and architecture coding for highly scalable systems</li>
-                        <li>Delivering distributed systems using SOA and Microservices principles, tools, and techniques</li>
-                        <li>Driving and executing complex cloud migrations, library and server migrations at scale</li>
-                        <li>Performance tuning, troubleshooting & DevOps engineering</li>
-                        <li>Functional Programming and Scala</li>
-                        <li>Technology Mentor, agile coach & leader for architecture and engineering teams</li>
-                        <li>Consultant on development practices with XP / Kanban</li>
-                        <li>Hire, develop, retain, and truly grow talent at scale</li>
-                    </ul>
-                </article>
+                <div class="skills-lectures-container">
+                    <article id="skills">
+                        <h3>💻 Core skills and expertise:</h3>
+                        <ul class="skills-list">
+                            <li>Architecture Design and architecture coding for highly scalable systems</li>
+                            <li>Delivering distributed systems using SOA and Microservices principles, tools, and techniques</li>
+                            <li>Driving and executing complex cloud migrations, library and server migrations at scale</li>
+                            <li>Performance tuning, troubleshooting & DevOps engineering</li>
+                            <li>Functional Programming and Scala</li>
+                            <li>Technology Mentor, agile coach & leader for architecture and engineering teams</li>
+                            <li>Consultant on development practices with XP / Kanban</li>
+                            <li>Hire, develop, retain, and truly grow talent at scale</li>
+                        </ul>
+                    </article>
+
+                    <div class="lectures-column">
+                        <article id="lectures" class="lectures-section">
+                            <h2>🔉Recent Lectures</h2>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>2018</th>
+                                        <th>2016</th>
+                                        <th>2015</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <ul>
+                                                <li><a href="https://www.slideshare.net/diego.pacheco/experiences-building-a-multi-region-cassandra-operations-orchestrator-on-aws">Meetup AWS POA</a></li>
+                                            </ul>
+                                        </td>
+                                        <td>
+                                            <ul>
+                                                <li><a href="https://www.youtube.com/watch?v=Z4_rzsZd70o&feature=youtu.be">Netflix</a></li>
+                                                <li><a href="https://www.infoq.com/br/presentations/microservices-reativos-usando-a-stack-do-netflix-na-aws">QCon SP</a></li>
+                                                <li><a href="http://www.meetup.com/Sao-Paulo-Amazon-Web-Services-AWS-Meetup/events/229283010">AWS SP Meetup</a></li>
+                                            </ul>
+                                        </td>
+                                        <td>
+                                            <ul>
+                                                <li><a href="https://www.infoq.com/br/presentations/vivenciando-devops">QCon SP</a></li>
+                                                <li><a href="https://agilebrazil2015.sched.com/event/4DE2">Agile Brazil</a></li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </article>
+
+                        <article id="papers">
+                            <h2>📜 Papers (2019)</h2>
+                            <ul class="papers-list">
+                                <li><a href="https://ilegra.com/wp-content/uploads/2019/10/Arquitetura-Valor-e-Negócio.pdf">Arch, Business & Value</a></li>
+                                <li><a href="https://ilegra.com/wp-content/uploads/2019/10/Paper-Multicloud.pdf">Multi/Poly Cloud</a></li>
+                                <li><a href="https://ilegra.com/wp-content/uploads/2019/10/Paper-Frontend.pdf">Micro Frontends & SRR</a></li>
+                            </ul>
+                        </article>
+                    </div>
+                </div>
 
                 <div class="side-by-side-container">
                     <article id="resources">
@@ -298,7 +396,7 @@
                             <li>📺YouTube Tech Channel (<a href="https://www.youtube.com/channel/UC81qdxTnQWQxw73_CmIZAjg/videos">youtube.com/...</a>)</li>
                         </ul>
                     </article>
-    
+
                     <article id="certifications">
                         <h3>💯 Certifications</h3>
                         <ul class="certifications-list">
@@ -309,84 +407,38 @@
                     </article>
                 </div>
 
-                <div class="side-by-side-container">
-                    <article id="essays">
-                        <h3>📝 Tiny Essays</h3>
-                        <ul class="essays-list">
-                            <li><img class="icon" src="https://emojis.slackmojis.com/emojis/images/1643514229/1965/rust.png?1643514229" alt="Rust icon"> Rust <a href="https://gist.github.com/diegopacheco/4b7dfeb781ad3455ae2a6b090d9deaa7">gist</a></li>
-                            <li><img class="icon" src="https://slackmojis.com/emojis/1857-scala/download" alt="Scala icon"> Scala <a href="https://gist.github.com/diegopacheco/1b5df4287dd1ce4276631fd630267311">gist</a></li>
-                            <li><img class="icon" src="https://slackmojis.com/emojis/57099-ziglang/download" alt="Zig icon"> Zig <a href="https://gist.github.com/diegopacheco/7d7c8110db68352d58a18b0e3e3c2bb0">gist</a></li>
-                            <li><img class="icon" src="https://slackmojis.com/emojis/2351-kotlin/download" alt="Kotlin icon"> Kotlin <a href="https://gist.github.com/diegopacheco/f6beabf1451cfe1ec2dc89a19a78fdc5">gist</a></li>
-                            <li><img class="icon" src="https://slackmojis.com/emojis/378-clojure/download" alt="Clojure icon"> Clojure <a href="https://gist.github.com/diegopacheco/9453877378f007e8903a359f298a0afa">gist</a></li>
-                            <li><img class="icon" src="https://slackmojis.com/emojis/22333-haskell/download" alt="Haskell icon"> Haskell <a href="https://gist.github.com/diegopacheco/057087dc7ae236bdd0700014a31c88ef">gist</a></li>
-                            <li><img class="icon" src="https://slackmojis.com/emojis/63427-nim/download" alt="Nim icon"> Nim <a href="https://gist.github.com/diegopacheco/0fb84d881e2423147d9cb6f8619bf473">gist</a></li>
-                            <li><img class="icon" src="https://vlang.io/img/v-logo.png" alt="V lang icon"> V <a href="https://gist.github.com/diegopacheco/3d0b176eb83e569da582a0770209e22f">gist</a></li>
-                        </ul>
-                    </article>
-    
-                    <article id="projects">
-                        <h3>🥇 Tiny Side Projects</h3>
-                        <ul class="projects-list">
-                            <li>🧝🏾‍♂️ Tupi lang: Java 23 PL: <a href="https://github.com/diegopacheco/tupilang">tupilang</a></li>
-                            <li>🥫 Jello: vanilla JS, trello-like: <a href="https://github.com/diegopacheco/jello">jello</a></li>
-                            <li>📑 Zim: vim-like in Zig 0.13: <a href="https://github.com/diegopacheco/zim">zim</a></li>
-                            <li>💻 Gorminator: Linux terminal in Go: <a href="https://github.com/diegopacheco/gorminator">gorminator</a></li>
-                            <li>😸 kit: Git-like in Kotlin: <a href="https://github.com/diegopacheco/kit">kit</a></li>
-                            <li>🦀 Shrust: Compress tool in Rust: <a href="https://github.com/diegopacheco/Shrust">shrust</a></li>
-                            <li>🕵🏽 Smith: Security Agent in Scala 3.x: <a href="https://github.com/diegopacheco/Smith">Smith</a></li>
-                            <li>📟 ZOS: A very tiny OS written in Zig: <a href="https://github.com/diegopacheco/zos">zos</a></li>
-                            <li>🎮 Tiny Games: Collection of JS games: <a href="https://gist.github.com/diegopacheco/d48104e8f584e3209ce7d5f5c0186e0e">Tiny Games</a></li>
-                        </ul>
-                    </article>
-                </div>
-                
-                <div class="lectures-papers-container">
-                    <article id="lectures" class="lectures-section">
-                        <h2>🔉Recent Lectures</h2>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>2018</th>
-                                    <th>2016</th>
-                                    <th>2015</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <ul>
-                                            <li><a href="https://www.slideshare.net/diego.pacheco/experiences-building-a-multi-region-cassandra-operations-orchestrator-on-aws">Meetup AWS POA</a></li>
-                                        </ul>
-                                    </td>
-                                    <td>
-                                        <ul>
-                                            <li><a href="https://www.youtube.com/watch?v=Z4_rzsZd70o&feature=youtu.be">Netflix</a></li>
-                                            <li><a href="https://www.infoq.com/br/presentations/microservices-reativos-usando-a-stack-do-netflix-na-aws">QCon SP</a></li>
-                                            <li><a href="http://www.meetup.com/Sao-Paulo-Amazon-Web-Services-AWS-Meetup/events/229283010">AWS SP Meetup</a></li>
-                                        </ul>
-                                    </td>
-                                    <td>
-                                        <ul>
-                                            <li><a href="https://www.infoq.com/br/presentations/vivenciando-devops">QCon SP</a></li>
-                                            <li><a href="https://agilebrazil2015.sched.com/event/4DE2">Agile Brazil</a></li>
-                                        </ul>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </article>
-    
-                    <article id="papers">
-                        <h2>📜 Papers (2019)</h2>
-                        <ul class="papers-list">
-                            <li><a href="https://ilegra.com/wp-content/uploads/2019/10/Arquitetura-Valor-e-Negócio.pdf">Arch, Business & Value</a></li>
-                            <li><a href="https://ilegra.com/wp-content/uploads/2019/10/Paper-Multicloud.pdf">Multi/Poly Cloud</a></li>
-                            <li><a href="https://ilegra.com/wp-content/uploads/2019/10/Paper-Frontend.pdf">Micro Frontends & SRR</a></li>
-                        </ul>
-                    </article>
-                </div>
-
             </section>
+
+            <aside class="right-column">
+                <article id="essays">
+                    <h3>📝 Tiny Essays</h3>
+                    <ul class="essays-list">
+                        <li><img class="icon" src="https://emojis.slackmojis.com/emojis/images/1643514229/1965/rust.png?1643514229" alt="Rust icon"> Rust <a href="https://gist.github.com/diegopacheco/4b7dfeb781ad3455ae2a6b090d9deaa7">gist</a></li>
+                        <li><img class="icon" src="https://slackmojis.com/emojis/1857-scala/download" alt="Scala icon"> Scala <a href="https://gist.github.com/diegopacheco/1b5df4287dd1ce4276631fd630267311">gist</a></li>
+                        <li><img class="icon" src="https://slackmojis.com/emojis/57099-ziglang/download" alt="Zig icon"> Zig <a href="https://gist.github.com/diegopacheco/7d7c8110db68352d58a18b0e3e3c2bb0">gist</a></li>
+                        <li><img class="icon" src="https://slackmojis.com/emojis/2351-kotlin/download" alt="Kotlin icon"> Kotlin <a href="https://gist.github.com/diegopacheco/f6beabf1451cfe1ec2dc89a19a78fdc5">gist</a></li>
+                        <li><img class="icon" src="https://slackmojis.com/emojis/378-clojure/download" alt="Clojure icon"> Clojure <a href="https://gist.github.com/diegopacheco/9453877378f007e8903a359f298a0afa">gist</a></li>
+                        <li><img class="icon" src="https://slackmojis.com/emojis/22333-haskell/download" alt="Haskell icon"> Haskell <a href="https://gist.github.com/diegopacheco/057087dc7ae236bdd0700014a31c88ef">gist</a></li>
+                        <li><img class="icon" src="https://slackmojis.com/emojis/63427-nim/download" alt="Nim icon"> Nim <a href="https://gist.github.com/diegopacheco/0fb84d881e2423147d9cb6f8619bf473">gist</a></li>
+                        <li><img class="icon" src="https://vlang.io/img/v-logo.png" alt="V lang icon"> V <a href="https://gist.github.com/diegopacheco/3d0b176eb83e569da582a0770209e22f">gist</a></li>
+                    </ul>
+                </article>
+
+                <article id="projects">
+                    <h3>🥇 Tiny Side Projects</h3>
+                    <ul class="projects-list">
+                        <li>🧝🏾‍♂️ Tupi lang: Java 23 PL: <a href="https://github.com/diegopacheco/tupilang">tupilang</a></li>
+                        <li>🥫 Jello: vanilla JS, trello-like: <a href="https://github.com/diegopacheco/jello">jello</a></li>
+                        <li>📑 Zim: vim-like in Zig 0.13: <a href="https://github.com/diegopacheco/zim">zim</a></li>
+                        <li>💻 Gorminator: Linux terminal in Go: <a href="https://github.com/diegopacheco/gorminator">gorminator</a></li>
+                        <li>😸 kit: Git-like in Kotlin: <a href="https://github.com/diegopacheco/kit">kit</a></li>
+                        <li>🦀 Shrust: Compress tool in Rust: <a href="https://github.com/diegopacheco/Shrust">shrust</a></li>
+                        <li>🕵🏽 Smith: Security Agent in Scala 3.x: <a href="https://github.com/diegopacheco/Smith">Smith</a></li>
+                        <li>📟 ZOS: A very tiny OS written in Zig: <a href="https://github.com/diegopacheco/zos">zos</a></li>
+                        <li>🎮 Tiny Games: Collection of JS games: <a href="https://gist.github.com/diegopacheco/d48104e8f584e3209ce7d5f5c0186e0e">Tiny Games</a></li>
+                    </ul>
+                </article>
+            </aside>
         </div>
     </div>
 </body>
