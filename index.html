@@ -230,8 +230,8 @@
         }
 
         .right-column {
-            flex: 1 1 260px;
-            max-width: 320px;
+            flex: 1 1 320px;
+            max-width: 420px;
             padding-left: 8px;
             display: flex;
             flex-direction: column;
@@ -250,13 +250,17 @@
         .right-top-row {
             display: flex;
             flex-direction: row;
-            gap: 8px;
+            gap: 12px;
             flex-wrap: nowrap;
             align-items: flex-start;
         }
-        .right-top-row > article {
-            flex: 1 1 0;
-            min-width: 0;
+        .right-top-row #essays {
+            flex: 0 0 38%;
+            min-width: 200px;
+        }
+        .right-top-row #projects {
+            flex: 1 1 62%;
+            min-width: 240px;
         }
 
         .lectures-section table {
@@ -346,6 +350,10 @@
                 flex-direction: column;
                 gap: 6px;
             }
+            .right-top-row #essays,
+            .right-top-row #projects {
+                flex: 1 1 100%;
+            }
         }
 
         br { display: none; }
@@ -426,6 +434,17 @@
                 <p><img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/slideshare-logo.jpg" alt="SlideShare" /><a href="http://www.slideshare.net/diego.pacheco/presentations" title="diego.pacheco on SlideShare">SlideShare</a></p>
                 <p><img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/DockerHub.jpg" alt="DockerHub" /><a href="https://hub.docker.com/u/diegopacheco/" title="diegopacheco on DockerHub">DockerHub</a></p>
                 <p><img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/vimeo2.png" alt="Vimeo" /><a href="https://vimeo.com/channels/pacheco" title="pacheco on Vimeo">Vimeo</a></p>
+
+                <article id="resources">
+                    <h3>🌐 Resources:</h3>
+                    <ul class="resources-list">
+                        <li>📝 Blogger (<a href="https://diego-pacheco.blogspot.com/">blogspot</a>)</li>
+                        <li>📝 Medium (<a href="https://diego-pacheco.medium.com/">medium</a>)</li>
+                        <li>📚 Amazon (<a href="https://amazon.com/author/diegopacheco">amazon.com/author</a>)</li>
+                        <li>🐦 Twitter/X (<a href="https://twitter.com/diego_pacheco">@diego_pacheco</a>)</li>
+                        <li>📺 YouTube (<a href="https://www.youtube.com/channel/UC81qdxTnQWQxw73_CmIZAjg/videos">tech channel</a>)</li>
+                    </ul>
+                </article>
             </aside>
 
             <section class="details-column">
@@ -521,30 +540,30 @@
                         </ul>
                     </article>
 
-                    <article id="resources">
-                        <h3>🌐 Resources:</h3>
-                        <ul class="resources-list">
-                            <li>📝Blogger(<a href="https://diego-pacheco.blogspot.com/">diego-pacheco.blogspot.com</a>)</li>
-                            <li>📝Medium(<a href="https://diego-pacheco.medium.com/">diego-pacheco.medium.com</a>)</li>
-                            <li>📚Amazon Author(<a href="https://amazon.com/author/diegopacheco">amazon.com/author/diegopacheco</a>)</li>
-                            <li>🐦Twitter/X (<a href="https://twitter.com/diego_pacheco">twitter.com/diego_pacheco</a>)</li>
-                            <li>📺YouTube Tech Channel (<a href="https://www.youtube.com/channel/UC81qdxTnQWQxw73_CmIZAjg/videos">youtube.com/...</a>)</li>
+                    <article id="projects">
+                        <h3>🥇 Tiny Side Projects</h3>
+                        <ul class="projects-list">
+                            <li>🧝🏾‍♂️ Tupi lang: Java 23 PL: <a href="https://github.com/diegopacheco/tupilang">tupilang</a></li>
+                            <li>🥫 Jello: vanilla JS, trello-like: <a href="https://github.com/diegopacheco/jello">jello</a></li>
+                            <li>📑 Zim: vim-like in Zig 0.13: <a href="https://github.com/diegopacheco/zim">zim</a></li>
+                            <li>💻 Gorminator: Linux terminal in Go: <a href="https://github.com/diegopacheco/gorminator">gorminator</a></li>
+                            <li>😸 kit: Git-like in Kotlin: <a href="https://github.com/diegopacheco/kit">kit</a></li>
+                            <li>🦀 Shrust: Compress tool in Rust: <a href="https://github.com/diegopacheco/Shrust">shrust</a></li>
+                            <li>🕵🏽 Smith: Security Agent in Scala 3.x: <a href="https://github.com/diegopacheco/Smith">Smith</a></li>
+                            <li>📟 ZOS: A very tiny OS written in Zig: <a href="https://github.com/diegopacheco/zos">zos</a></li>
+                            <li>🎮 Tiny Games: Collection of JS games: <a href="https://gist.github.com/diegopacheco/d48104e8f584e3209ce7d5f5c0186e0e">Tiny Games</a></li>
                         </ul>
                     </article>
                 </div>
 
-                <article id="projects">
-                    <h3>🥇 Tiny Side Projects</h3>
-                    <ul class="projects-list">
-                        <li>🧝🏾‍♂️ Tupi lang: Java 23 PL: <a href="https://github.com/diegopacheco/tupilang">tupilang</a></li>
-                        <li>🥫 Jello: vanilla JS, trello-like: <a href="https://github.com/diegopacheco/jello">jello</a></li>
-                        <li>📑 Zim: vim-like in Zig 0.13: <a href="https://github.com/diegopacheco/zim">zim</a></li>
-                        <li>💻 Gorminator: Linux terminal in Go: <a href="https://github.com/diegopacheco/gorminator">gorminator</a></li>
-                        <li>😸 kit: Git-like in Kotlin: <a href="https://github.com/diegopacheco/kit">kit</a></li>
-                        <li>🦀 Shrust: Compress tool in Rust: <a href="https://github.com/diegopacheco/Shrust">shrust</a></li>
-                        <li>🕵🏽 Smith: Security Agent in Scala 3.x: <a href="https://github.com/diegopacheco/Smith">Smith</a></li>
-                        <li>📟 ZOS: A very tiny OS written in Zig: <a href="https://github.com/diegopacheco/zos">zos</a></li>
-                        <li>🎮 Tiny Games: Collection of JS games: <a href="https://gist.github.com/diegopacheco/d48104e8f584e3209ce7d5f5c0186e0e">Tiny Games</a></li>
+                <article id="resources">
+                    <h3>🌐 Resources:</h3>
+                    <ul class="resources-list">
+                        <li>📝Blogger(<a href="https://diego-pacheco.blogspot.com/">diego-pacheco.blogspot.com</a>)</li>
+                        <li>📝Medium(<a href="https://diego-pacheco.medium.com/">diego-pacheco.medium.com</a>)</li>
+                        <li>📚Amazon Author(<a href="https://amazon.com/author/diegopacheco">amazon.com/author/diegopacheco</a>)</li>
+                        <li>🐦Twitter/X (<a href="https://twitter.com/diego_pacheco">twitter.com/diego_pacheco</a>)</li>
+                        <li>📺YouTube Tech Channel (<a href="https://www.youtube.com/channel/UC81qdxTnQWQxw73_CmIZAjg/videos">youtube.com/...</a>)</li>
                     </ul>
                 </article>
             </aside>
