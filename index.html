@@ -69,10 +69,18 @@
             padding: 6px;
             width: 170px;
             height: 170px;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .profile-image-container::before {
+            content: "";
+            position: absolute;
+            inset: 0;
             background-image: url('images/header_photo.jpeg');
-            background-size: cover;
-            background-position: 80% center;
+            background-size: 140% auto;
+            background-position: left center;
             background-repeat: no-repeat;
+            z-index: 0;
         }
         .profile-image-container img {
             width: 96px;
