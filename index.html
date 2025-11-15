@@ -167,23 +167,22 @@
         }
         .mini-slider {
             display: flex;
-            gap: 0;
-            cursor: grab;
+            flex-wrap: nowrap;
+            gap: 4px;
+            cursor: default;
             user-select: none;
-            transition: transform 0.3s ease;
-            will-change: transform;
         }
         .mini-card {
-            flex: 0 0 190px;
-            margin-right: 20px;
-            border-radius: 18px;
+            flex: 0 0 calc((100% - 28px) / 8);
+            margin-right: 0;
+            border-radius: 16px;
             background: rgba(17, 25, 64, 0.75);
-            box-shadow: 0 12px 28px rgba(13, 20, 50, 0.45);
-            padding: 16px 14px;
+            box-shadow: 0 10px 24px rgba(13, 20, 50, 0.45);
+            padding: 10px;
             position: relative;
             text-align: center;
             color: #fff;
-            font-size: 0.82rem;
+            font-size: 0.72rem;
             font-weight: 600;
             display: flex;
             flex-direction: column;
@@ -191,16 +190,12 @@
             align-items: center;
             transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
             opacity: 1;
-            transform: scale(0.93);
-        }
-        .mini-card + .mini-card {
-            margin-left: -135px;
-            z-index: 1;
+            transform: scale(0.94);
         }
         .mini-card img {
-            width: 60px;
-            height: 60px;
-            border-radius: 16px;
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
             margin-bottom: 0;
             border: none;
             padding: 0;
@@ -216,14 +211,14 @@
             transition: opacity 0.25s ease;
         }
         .mini-card:hover {
-            transform: translateY(-6px) scale(1.24);
-            box-shadow: 0 18px 36px rgba(13, 20, 50, 0.55);
-            background: rgba(17, 25, 64, 0.98);
+            transform: translateY(-6px) scale(1.35);
+            box-shadow: 0 22px 40px rgba(13, 20, 50, 0.6);
+            background: rgba(17, 25, 64, 1);
             opacity: 1;
             z-index: 10;
         }
         .mini-card:hover img {
-            transform: scale(1.32);
+            transform: scale(1.45);
         }
         .mini-card:hover .mini-label {
             opacity: 1;
@@ -681,66 +676,6 @@
             update();
         })();
 
-        (function(){
-            const slider = document.getElementById('essays-slider');
-            if(!slider) return;
-            const cards = Array.from(slider.querySelectorAll('.mini-card'));
-            const OVERLAP = 135;
-            let index = 0;
-
-            function cardWidth(){
-                return cards[0].getBoundingClientRect().width;
-            }
-
-            function step(){
-                return cardWidth() - OVERLAP;
-            }
-
-            function clamp(){
-                const maxStart = Math.max(0, cards.length - 1);
-                index = Math.min(maxStart, Math.max(0, index));
-            }
-
-            function update(){
-                slider.style.transform = `translateX(${-index * step()}px)`;
-            }
-
-            function scroll(delta){
-                index += delta;
-                clamp();
-                update();
-            }
-
-            let start = null;
-            slider.addEventListener('dragstart', e => e.preventDefault());
-            slider.addEventListener('mousedown', e => start = e.clientX);
-            window.addEventListener('mouseup', () => start = null);
-            window.addEventListener('mousemove', e => {
-                if(start === null) return;
-                const dx = e.clientX - start;
-                if(Math.abs(dx) > 40){
-                    scroll(dx < 0 ? 1 : -1);
-                    start = e.clientX;
-                }
-            });
-            slider.addEventListener('touchstart', e => start = e.touches[0].clientX, {passive:true});
-            slider.addEventListener('touchend', () => start = null);
-            slider.addEventListener('touchmove', e => {
-                if(start === null) return;
-                const dx = e.touches[0].clientX - start;
-                if(Math.abs(dx) > 40){
-                    scroll(dx < 0 ? 1 : -1);
-                    start = e.touches[0].clientX;
-                }
-            }, {passive:true});
-            window.addEventListener('resize', () => {
-                clamp();
-                update();
-            });
-
-            clamp();
-            update();
-        })();
     </script>
 
 </body>
