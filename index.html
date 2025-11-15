@@ -67,11 +67,11 @@
         .hero {
             display: flex;
             flex-wrap: wrap;
-            gap: 32px;
+            gap: 30px;
             background: linear-gradient(135deg, #373b44, #4286f4);
             color: #fff;
-            padding: 40px;
-            min-height: 560px;
+            padding: 38.8px;
+            min-height: 543px;
         }
         .hero h1, .hero h2, .hero h3, .hero p, .hero li, .hero a {
             color: #fff;
@@ -266,20 +266,17 @@
         }
         .mini-slider {
             display: flex;
-            flex-wrap: nowrap;
-            gap: 4px;
+            flex-wrap: wrap;
+            gap: 8px 6px;
             cursor: grab;
             user-select: none;
-            overflow: hidden;
         }
         .mini-card {
-            flex: 0 0 calc(((100% - 28px) / 8) * 0.8);
-            margin-right: 0;
+            flex: 0 0 calc(25% - 6px);
             border-radius: 14px;
             background: rgba(17, 25, 64, 0.75);
             box-shadow: 0 10px 24px rgba(13, 20, 50, 0.45);
             padding: 8px;
-            position: relative;
             text-align: center;
             color: #fff;
             font-size: 0.65rem;
@@ -290,7 +287,6 @@
             align-items: center;
             transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
             opacity: 1;
-            transform: scale(0.92);
         }
         .mini-card img {
             width: 36px;
