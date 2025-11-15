@@ -48,9 +48,10 @@
         ul { margin: 0; padding-left: 20px; }
 
         .site-shell {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 32px 24px 64px;
+            max-width: none;
+            width: 100%;
+            margin: 0;
+            padding: 32px 32px 72px;
             display: flex;
             flex-direction: column;
             gap: 24px;
@@ -69,6 +70,8 @@
             gap: 32px;
             background: linear-gradient(135deg, #373b44, #4286f4);
             color: #fff;
+            padding: 40px;
+            min-height: 560px;
         }
         .hero h1, .hero h2, .hero h3, .hero p, .hero li, .hero a {
             color: #fff;
@@ -142,15 +145,111 @@
         }
 
         .hero-right {
-            flex: 2 1 640px;
+            flex: 3 1 720px;
             width: auto;
             min-width: 0;
             background: rgba(15, 23, 42, 0.3);
             border-radius: 24px;
-            padding: 20px;
+            padding: 28px;
+            display: flex;
+            flex-direction: row;
+            gap: 24px;
+        }
+        .hero-right-main {
+            flex: 1 1 auto;
             display: flex;
             flex-direction: column;
             gap: 24px;
+        }
+        .side-projects-stack {
+            align-self: flex-start;
+            max-width: 170px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 8px;
+        }
+        .side-projects-stack h3 {
+            margin: 0;
+            color: #fff;
+            font-size: 1rem;
+        }
+        .side-projects-list {
+            position: relative;
+            min-height: 150px;
+            padding-right: 6px;
+            overflow: hidden;
+        }
+        .side-project-card {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            min-height: 120px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            padding: 10px;
+            border-radius: 14px;
+            background: linear-gradient(165deg, rgba(22, 30, 78, 0.98), rgba(49, 66, 145, 0.98));
+            box-shadow: 0 14px 28px rgba(15, 23, 42, 0.45);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            opacity: 1;
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+            text-decoration: none;
+            color: #fff;
+            transform: translateY(calc(var(--stack-index, 0) * 12px));
+            z-index: calc(30 - var(--stack-index, 0));
+            pointer-events: none;
+        }
+        .side-project-card.is-active {
+            pointer-events: auto;
+            box-shadow: 0 20px 45px rgba(15, 23, 42, 0.6);
+        }
+        .side-project-card:hover {
+            box-shadow: 0 18px 32px rgba(15, 23, 42, 0.6);
+            transform: translateY(calc(var(--stack-index, 0) * 12px - 4px));
+        }
+        .side-project-card-header {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        .side-project-emoji {
+            width: 28px;
+            height: 28px;
+            border-radius: 10px;
+            background: rgba(10, 15, 38, 0.65);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+        .side-project-name {
+            font-size: 0.82rem;
+            font-weight: 600;
+            margin: 0;
+            color: #fff;
+        }
+        .side-project-desc {
+            margin: 0;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.68rem;
+        }
+        .side-project-link {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            color: rgba(255, 255, 255, 0.9);
+            text-transform: uppercase;
+        }
+        .side-project-link::after {
+            content: '↗';
+            font-size: 0.7rem;
         }
         .published-works {
             display: flex;
@@ -169,8 +268,9 @@
             display: flex;
             flex-wrap: nowrap;
             gap: 4px;
-            cursor: default;
+            cursor: grab;
             user-select: none;
+            overflow: hidden;
         }
         .mini-card {
             flex: 0 0 calc((100% - 28px) / 8);
@@ -303,7 +403,7 @@
 
         .main-content-area {
             display: grid;
-            grid-template-columns: 260px minmax(0, 1fr) minmax(0, 320px);
+            grid-template-columns: 260px minmax(0, 1fr);
             gap: 24px;
             align-items: flex-start;
         }
@@ -359,6 +459,16 @@
             .socials-column { grid-column: span 2; }
         }
 
+        @media (max-width: 1024px) {
+            .hero-right {
+                flex-direction: column;
+            }
+            .side-projects-stack {
+                flex: 1 1 auto;
+                max-width: none;
+            }
+        }
+
         @media (max-width: 680px) {
             .site-shell { padding: 24px 16px 48px; }
             .hero { padding: 24px; }
@@ -398,78 +508,174 @@
                     </div>
                 </div>
                 <p class="hero-description">Brazilian software architect, SOA expert, DevOps practitioner, author, mentor, and speaker.</p>
+                <div class="side-projects-stack">
+                    <h3>🥇 Tiny Side Projects</h3>
+                    <div class="side-projects-list">
+                        <a class="side-project-card" href="https://github.com/diegopacheco/tupilang" title="Tupi lang on GitHub">
+                            <div class="side-project-card-header">
+                                <span class="side-project-emoji" aria-hidden="true">🧝🏾‍♂️</span>
+                                <div>
+                                    <p class="side-project-name">Tupi lang</p>
+                                    <p class="side-project-desc">Java 23 PL</p>
+                                </div>
+                            </div>
+                            <span class="side-project-link">tupilang</span>
+                        </a>
+                        <a class="side-project-card" href="https://github.com/diegopacheco/jello" title="Jello on GitHub">
+                            <div class="side-project-card-header">
+                                <span class="side-project-emoji" aria-hidden="true">🥫</span>
+                                <div>
+                                    <p class="side-project-name">Jello</p>
+                                    <p class="side-project-desc">Vanilla JS Trello</p>
+                                </div>
+                            </div>
+                            <span class="side-project-link">jello</span>
+                        </a>
+                        <a class="side-project-card" href="https://github.com/diegopacheco/zim" title="Zim on GitHub">
+                            <div class="side-project-card-header">
+                                <span class="side-project-emoji" aria-hidden="true">📑</span>
+                                <div>
+                                    <p class="side-project-name">Zim</p>
+                                    <p class="side-project-desc">Zig 0.13 vim-like</p>
+                                </div>
+                            </div>
+                            <span class="side-project-link">zim</span>
+                        </a>
+                        <a class="side-project-card" href="https://github.com/diegopacheco/gorminator" title="Gorminator on GitHub">
+                            <div class="side-project-card-header">
+                                <span class="side-project-emoji" aria-hidden="true">💻</span>
+                                <div>
+                                    <p class="side-project-name">Gorminator</p>
+                                    <p class="side-project-desc">Go Linux terminal</p>
+                                </div>
+                            </div>
+                            <span class="side-project-link">gorminator</span>
+                        </a>
+                        <a class="side-project-card" href="https://github.com/diegopacheco/kit" title="kit on GitHub">
+                            <div class="side-project-card-header">
+                                <span class="side-project-emoji" aria-hidden="true">😸</span>
+                                <div>
+                                    <p class="side-project-name">kit</p>
+                                    <p class="side-project-desc">Git-like in Kotlin</p>
+                                </div>
+                            </div>
+                            <span class="side-project-link">kit</span>
+                        </a>
+                        <a class="side-project-card" href="https://github.com/diegopacheco/shrust" title="Shrust on GitHub">
+                            <div class="side-project-card-header">
+                                <span class="side-project-emoji" aria-hidden="true">🦀</span>
+                                <div>
+                                    <p class="side-project-name">Shrust</p>
+                                    <p class="side-project-desc">Rust compression</p>
+                                </div>
+                            </div>
+                            <span class="side-project-link">shrust</span>
+                        </a>
+                        <a class="side-project-card" href="https://github.com/diegopacheco/smith" title="Smith on GitHub">
+                            <div class="side-project-card-header">
+                                <span class="side-project-emoji" aria-hidden="true">🕵🏽</span>
+                                <div>
+                                    <p class="side-project-name">Smith</p>
+                                    <p class="side-project-desc">Scala 3 security agent</p>
+                                </div>
+                            </div>
+                            <span class="side-project-link">smith</span>
+                        </a>
+                        <a class="side-project-card" href="https://github.com/diegopacheco/zos" title="ZOS on GitHub">
+                            <div class="side-project-card-header">
+                                <span class="side-project-emoji" aria-hidden="true">📟</span>
+                                <div>
+                                    <p class="side-project-name">ZOS</p>
+                                    <p class="side-project-desc">Tiny Zig OS</p>
+                                </div>
+                            </div>
+                            <span class="side-project-link">zos</span>
+                        </a>
+                        <a class="side-project-card" href="https://gist.github.com/diegopacheco/d48104e8f584e3209ce7d5f5c0186e0e" title="Tiny Games Collection">
+                            <div class="side-project-card-header">
+                                <span class="side-project-emoji" aria-hidden="true">🎮</span>
+                                <div>
+                                    <p class="side-project-name">Tiny Games</p>
+                                    <p class="side-project-desc">Collection of JS games</p>
+                                </div>
+                            </div>
+                            <span class="side-project-link">Tiny Games</span>
+                        </a>
+                    </div>
+                </div>
             </div>
             <div class="hero-right">
-                <div class="mini-carousel">
-                    <h3>📝 Tiny Essays</h3>
-                    <div class="books-slider mini-slider" id="essays-slider">
-                        <a class="mini-card" href="https://gist.github.com/diegopacheco/4b7dfeb781ad3455ae2a6b090d9deaa7" title="Rust essay">
-                            <img src="https://emojis.slackmojis.com/emojis/images/1643514229/1965/rust.png?1643514229" alt="Rust icon" />
-                            <span class="mini-label">Rust</span>
-                        </a>
-                        <a class="mini-card" href="https://gist.github.com/diegopacheco/1b5df4287dd1ce4276631fd630267311" title="Scala essay">
-                            <img src="https://slackmojis.com/emojis/1857-scala/download" alt="Scala icon" />
-                            <span class="mini-label">Scala</span>
-                        </a>
-                        <a class="mini-card" href="https://gist.github.com/diegopacheco/7d7c8110db68352d58a18b0e3e3c2bb0" title="Zig essay">
-                            <img src="https://slackmojis.com/emojis/57099-ziglang/download" alt="Zig icon" />
-                            <span class="mini-label">Zig</span>
-                        </a>
-                        <a class="mini-card" href="https://gist.github.com/diegopacheco/f6beabf1451cfe1ec2dc89a19a78fdc5" title="Kotlin essay">
-                            <img src="https://slackmojis.com/emojis/2351-kotlin/download" alt="Kotlin icon" />
-                            <span class="mini-label">Kotlin</span>
-                        </a>
-                        <a class="mini-card" href="https://gist.github.com/diegopacheco/9453877378f007e8903a359f298a0afa" title="Clojure essay">
-                            <img src="https://slackmojis.com/emojis/378-clojure/download" alt="Clojure icon" />
-                            <span class="mini-label">Clojure</span>
-                        </a>
-                        <a class="mini-card" href="https://gist.github.com/diegopacheco/057087dc7ae236bdd0700014a31c88ef" title="Haskell essay">
-                            <img src="https://slackmojis.com/emojis/22333-haskell/download" alt="Haskell icon" />
-                            <span class="mini-label">Haskell</span>
-                        </a>
-                        <a class="mini-card" href="https://gist.github.com/diegopacheco/0fb84d881e2423147d9cb6f8619bf473" title="Nim essay">
-                            <img src="https://slackmojis.com/emojis/63427-nim/download" alt="Nim icon" />
-                            <span class="mini-label">Nim</span>
-                        </a>
-                        <a class="mini-card" href="https://gist.github.com/diegopacheco/3d0b176eb83e569da582a0770209e22f" title="V essay">
-                            <img src="https://vlang.io/img/v-logo.png" alt="V icon" />
-                            <span class="mini-label">V</span>
-                        </a>
+                <div class="hero-right-main">
+                    <div class="mini-carousel">
+                        <h3>📝 Tiny Essays</h3>
+                        <div class="books-slider mini-slider" id="essays-slider">
+                            <a class="mini-card" href="https://gist.github.com/diegopacheco/4b7dfeb781ad3455ae2a6b090d9deaa7" title="Rust essay">
+                                <img src="https://emojis.slackmojis.com/emojis/images/1643514229/1965/rust.png?1643514229" alt="Rust icon" />
+                                <span class="mini-label">Rust</span>
+                            </a>
+                            <a class="mini-card" href="https://gist.github.com/diegopacheco/1b5df4287dd1ce4276631fd630267311" title="Scala essay">
+                                <img src="https://slackmojis.com/emojis/1857-scala/download" alt="Scala icon" />
+                                <span class="mini-label">Scala</span>
+                            </a>
+                            <a class="mini-card" href="https://gist.github.com/diegopacheco/7d7c8110db68352d58a18b0e3e3c2bb0" title="Zig essay">
+                                <img src="https://slackmojis.com/emojis/57099-ziglang/download" alt="Zig icon" />
+                                <span class="mini-label">Zig</span>
+                            </a>
+                            <a class="mini-card" href="https://gist.github.com/diegopacheco/f6beabf1451cfe1ec2dc89a19a78fdc5" title="Kotlin essay">
+                                <img src="https://slackmojis.com/emojis/2351-kotlin/download" alt="Kotlin icon" />
+                                <span class="mini-label">Kotlin</span>
+                            </a>
+                            <a class="mini-card" href="https://gist.github.com/diegopacheco/9453877378f007e8903a359f298a0afa" title="Clojure essay">
+                                <img src="https://slackmojis.com/emojis/378-clojure/download" alt="Clojure icon" />
+                                <span class="mini-label">Clojure</span>
+                            </a>
+                            <a class="mini-card" href="https://gist.github.com/diegopacheco/057087dc7ae236bdd0700014a31c88ef" title="Haskell essay">
+                                <img src="https://slackmojis.com/emojis/22333-haskell/download" alt="Haskell icon" />
+                                <span class="mini-label">Haskell</span>
+                            </a>
+                            <a class="mini-card" href="https://gist.github.com/diegopacheco/0fb84d881e2423147d9cb6f8619bf473" title="Nim essay">
+                                <img src="https://slackmojis.com/emojis/63427-nim/download" alt="Nim icon" />
+                                <span class="mini-label">Nim</span>
+                            </a>
+                            <a class="mini-card" href="https://gist.github.com/diegopacheco/3d0b176eb83e569da582a0770209e22f" title="V essay">
+                                <img src="https://vlang.io/img/v-logo.png" alt="V icon" />
+                                <span class="mini-label">V</span>
+                            </a>
+                        </div>
                     </div>
-                </div>
 
-                <div class="published-works">
-                    <h2>Published Books & Video Series</h2>
-                    <div class="books-carousel">
-                        <div class="books-slider" id="books-slider">
-                            <a class="book-card" href="https://diegopacheco.github.io/The-Art-of-Sense-A-Philosophy-of-Modern-AI/">
-                                <img src="images/book-cover-AOS-2025-AI.png" alt="Diego Pacheco's The Art of Sense: A Philosophy of Modern AI" />
-                            </a>
-                            <a class="book-card" href="https://diegopacheco.github.io/diegopacheco-architecture-library/introduction.html">
-                                <img src="images/book-4-2025-cover.png" alt="Diego Pacheco's Software Architecture Library Book" />
-                            </a>
-                            <a class="book-card" href="https://www.amazon.com/Continuous-Modernization-never-ending-microservices-distributed-ebook/dp/B0DHS63NQH/">
-                                <img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/book-cm-2024.png" alt="Continuous Modernization Book" />
-                            </a>
-                            <a class="book-card" href="https://bpbonline.com/products/principles-of-software-architecture-modernization">
-                                <img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/book-arch-monoliths-2023.png" alt="Principles of Software Architecture Modernization Book" />
-                            </a>
-                            <a class="book-card" href="https://diegopacheco.github.io/tech-resources/">
-                                <img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/Tech_Resources_logo.png" alt="Diego Pacheco's Tech Resources" />
-                            </a>
-                            <a class="book-card" href="https://books.apple.com/us/book/building-applications-with-scala/id1113861297">
-                                <img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/book-cover-scala-2016-2.png" alt="Building Applications with Scala Book" />
-                            </a>
-                            <a class="book-card" href="https://www.packtpub.com/application-development/building-effective-microservices-video">
-                                <img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/video-cover-microservices-2017.png" alt="Building Effective Microservices Video Series" />
-                            </a>
-                        </div>
-                        <div class="carousel-controls">
-                            <button id="prev-book">Prev</button>
-                            <button id="next-book">Next</button>
+                    <div class="published-works">
+                        <h2>Published Books & Video Series</h2>
+                        <div class="books-carousel">
+                            <div class="books-slider" id="books-slider">
+                                <a class="book-card" href="https://diegopacheco.github.io/The-Art-of-Sense-A-Philosophy-of-Modern-AI/">
+                                    <img src="images/book-cover-AOS-2025-AI.png" alt="Diego Pacheco's The Art of Sense: A Philosophy of Modern AI" />
+                                </a>
+                                <a class="book-card" href="https://diegopacheco.github.io/diegopacheco-architecture-library/introduction.html">
+                                    <img src="images/book-4-2025-cover.png" alt="Diego Pacheco's Software Architecture Library Book" />
+                                </a>
+                                <a class="book-card" href="https://www.amazon.com/Continuous-Modernization-never-ending-microservices-distributed-ebook/dp/B0DHS63NQH/">
+                                    <img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/book-cm-2024.png" alt="Continuous Modernization Book" />
+                                </a>
+                                <a class="book-card" href="https://bpbonline.com/products/principles-of-software-architecture-modernization">
+                                    <img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/book-arch-monoliths-2023.png" alt="Principles of Software Architecture Modernization Book" />
+                                </a>
+                                <a class="book-card" href="https://diegopacheco.github.io/tech-resources/">
+                                    <img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/Tech_Resources_logo.png" alt="Diego Pacheco's Tech Resources" />
+                                </a>
+                                <a class="book-card" href="https://books.apple.com/us/book/building-applications-with-scala/id1113861297">
+                                    <img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/book-cover-scala-2016-2.png" alt="Building Applications with Scala Book" />
+                                </a>
+                                <a class="book-card" href="https://www.packtpub.com/application-development/building-effective-microservices-video">
+                                    <img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/video-cover-microservices-2017.png" alt="Building Effective Microservices Video Series" />
+                                </a>
+                            </div>
+                            <div class="carousel-controls">
+                                <button id="prev-book">Prev</button>
+                                <button id="next-book">Next</button>
+                            </div>
                         </div>
                     </div>
-                </div>
             </div>
         </header>
 
@@ -581,22 +787,6 @@
                 </div>
             </section>
 
-            <aside class="right-column card">
-                <article id="projects">
-                    <h3>🥇 Tiny Side Projects</h3>
-                    <ul class="projects-list">
-                        <li>🧝🏾‍♂️ Tupi lang: Java 23 PL: <a href="https://github.com/diegopacheco/tupilang">tupilang</a></li>
-                        <li>🥫 Jello: vanilla JS, trello-like: <a href="https://github.com/diegopacheco/jello">jello</a></li>
-                        <li>📑 Zim: vim-like in Zig 0.13: <a href="https://github.com/diegopacheco/zim">zim</a></li>
-                        <li>💻 Gorminator: Linux terminal in Go: <a href="https://github.com/diegopacheco/gorminator">gorminator</a></li>
-                        <li>😸 kit: Git-like in Kotlin: <a href="https://github.com/diegopacheco/kit">kit</a></li>
-                        <li>🦀 Shrust: Compress tool in Rust: <a href="https://github.com/diegopacheco/Shrust">shrust</a></li>
-                        <li>🕵🏽 Smith: Security Agent in Scala 3.x: <a href="https://github.com/diegopacheco/Smith">Smith</a></li>
-                        <li>📟 ZOS: A very tiny OS written in Zig: <a href="https://github.com/diegopacheco/zos">zos</a></li>
-                        <li>🎮 Tiny Games: Collection of JS games: <a href="https://gist.github.com/diegopacheco/d48104e8f584e3209ce7d5f5c0186e0e">Tiny Games</a></li>
-                    </ul>
-                </article>
-            </aside>
         </div>
     </div>
 
@@ -631,8 +821,10 @@
                 update();
             }
 
-            document.getElementById('prev-book').addEventListener('click', () => scroll(-1));
-            document.getElementById('next-book').addEventListener('click', () => scroll(1));
+            const prevBtn = document.getElementById('prev-book');
+            const nextBtn = document.getElementById('next-book');
+            if (prevBtn) prevBtn.addEventListener('click', () => scroll(-1));
+            if (nextBtn) nextBtn.addEventListener('click', () => scroll(1));
 
             let dragStart = null;
             slider.addEventListener('dragstart', e => e.preventDefault());
@@ -674,6 +866,176 @@
 
             clampIndex();
             update();
+        })();
+
+        (function(){
+            const list = document.querySelector('.side-projects-list');
+            if (!list) return;
+            let cards = Array.from(list.querySelectorAll('.side-project-card'));
+            if (cards.length <= 1) return;
+
+            function syncStack() {
+                cards.forEach((card, index) => {
+                    card.style.setProperty('--stack-index', index);
+                    card.classList.toggle('is-active', index === 0);
+                });
+            }
+
+            function rotateDown() {
+                const [first, ...rest] = cards;
+                cards = [...rest, first];
+                list.appendChild(first);
+                syncStack();
+            }
+
+            function rotateUp() {
+                const last = cards.pop();
+                if (!last) return;
+                cards = [last, ...cards];
+                list.insertBefore(last, list.firstChild);
+                syncStack();
+            }
+
+            function step(delta) {
+                if (delta > 0) {
+                    rotateDown();
+                } else if (delta < 0) {
+                    rotateUp();
+                }
+            }
+
+            syncStack();
+            let timer = setInterval(() => step(1), 4500);
+
+            function pause() {
+                if (timer) {
+                    clearInterval(timer);
+                    timer = null;
+                }
+            }
+            function resume() {
+                if (!timer) {
+                    timer = setInterval(() => step(1), 4500);
+                }
+            }
+            function resumeSoon() {
+                resumeTimeout && clearTimeout(resumeTimeout);
+                resumeTimeout = setTimeout(resume, 1500);
+            }
+            let resumeTimeout = null;
+
+            list.addEventListener('mouseenter', pause);
+            list.addEventListener('mouseleave', resume);
+
+            let dragStart = null;
+            list.addEventListener('touchstart', e => {
+                dragStart = e.touches[0].clientY;
+                pause();
+            }, {passive: true});
+            list.addEventListener('touchend', () => {
+                dragStart = null;
+                resume();
+            });
+            list.addEventListener('touchmove', e => {
+                if (dragStart == null) return;
+                const delta = e.touches[0].clientY - dragStart;
+                if (Math.abs(delta) > 18) {
+                    step(delta > 0 ? 1 : -1);
+                    dragStart = e.touches[0].clientY;
+                }
+            }, {passive: true});
+
+            list.addEventListener('mousedown', e => {
+                dragStart = e.clientY;
+                pause();
+            });
+            window.addEventListener('mouseup', () => {
+                if (dragStart != null) {
+                    dragStart = null;
+                    resume();
+                }
+            });
+            window.addEventListener('mousemove', e => {
+                if (dragStart == null) return;
+                const delta = e.clientY - dragStart;
+                if (Math.abs(delta) > 15) {
+                    step(delta > 0 ? 1 : -1);
+                    dragStart = e.clientY;
+                }
+            });
+
+            window.addEventListener('keydown', e => {
+                if (e.key === 'ArrowDown') {
+                    pause();
+                    step(1);
+                    resumeSoon();
+                } else if (e.key === 'ArrowUp') {
+                    pause();
+                    step(-1);
+                    resumeSoon();
+                }
+            });
+        })();
+
+        (function(){
+            const slider = document.getElementById('essays-slider');
+            if (!slider) return;
+            const cards = Array.from(slider.querySelectorAll('.mini-card'));
+            if (!cards.length) return;
+            let order = cards.slice();
+
+            function render() {
+                order.forEach(card => slider.appendChild(card));
+            }
+
+            render();
+
+            let dragStart = null;
+
+            slider.addEventListener('touchstart', e => {
+                dragStart = e.touches[0].clientY;
+            }, {passive: true});
+            slider.addEventListener('touchend', () => {
+                dragStart = null;
+            });
+            slider.addEventListener('touchmove', e => {
+                if (dragStart == null) return;
+                const delta = e.touches[0].clientY - dragStart;
+                if (Math.abs(delta) > 25) {
+                    if (delta > 0) {
+                        const first = order.shift();
+                        if (first) order.push(first);
+                    } else {
+                        const last = order.pop();
+                        if (last) order.unshift(last);
+                    }
+                    render();
+                    dragStart = e.touches[0].clientY;
+                }
+            }, {passive: true});
+
+            slider.addEventListener('mousedown', e => {
+                dragStart = e.clientY;
+                e.preventDefault();
+            });
+            window.addEventListener('mouseup', () => {
+                dragStart = null;
+            });
+            window.addEventListener('mousemove', e => {
+                if (dragStart == null) return;
+                const delta = e.clientY - dragStart;
+                if (Math.abs(delta) > 18) {
+                    if (delta > 0) {
+                        const first = order.shift();
+                        if (first) order.push(first);
+                    } else {
+                        const last = order.pop();
+                        if (last) order.unshift(last);
+                    }
+                    render();
+                    dragStart = e.clientY;
+                }
+            });
         })();
 
     </script>
