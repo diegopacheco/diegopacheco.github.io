@@ -472,10 +472,25 @@
             width: 100%;
             flex-direction: column !important;
             align-items: stretch !important;
+            gap: 20px !important;
+        }
+        body.single-column .mini-carousel {
+            order: 1;
+            width: 100%;
+        }
+        body.single-column .mini-slider {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px;
+        }
+        body.single-column .mini-card {
+            width: 100%;
+            flex: initial;
         }
         body.single-column .side-projects-stack {
             max-width: none;
             width: 100%;
+            order: 2;
         }
         body.single-column .published-works,
         body.single-column .bio-section,
