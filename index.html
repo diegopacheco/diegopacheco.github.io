@@ -461,6 +461,20 @@
         .details-column { display: flex; flex-direction: column; gap: 16px; }
         .skills-list, .certifications-list, .essays-list, .projects-list, .papers-list { list-style: none; padding-left: 0; }
         .skills-list { list-style: disc; padding-left: 18px; }
+        .feature-pocs-list {
+            list-style: disc;
+            padding-left: 20px;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 6px 18px;
+        }
+        .feature-pocs-list li {
+            margin: 0;
+            display: list-item;
+        }
+        @media (max-width: 600px) {
+            .feature-pocs-list { grid-template-columns: 1fr; }
+        }
         .skills-lectures-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -858,6 +872,21 @@
                                 <li>Technology Mentor, agile coach & leader for architecture and engineering teams</li>
                                 <li>Consultant on development practices with XP / Kanban</li>
                                 <li>Hire, develop, retain, and truly grow talent at scale</li>
+                            </ul>
+                        </article>
+                        <article id="feature-pocs">
+                            <h3>🧪 Feature POCs:</h3>
+                            <ul class="feature-pocs-list">
+                                <li><a href="https://github.com/diegopacheco/ai-playground" target="_blank" rel="noopener noreferrer">AI Playground</a></li>
+                                <li><a href="https://github.com/diegopacheco/data-structures" target="_blank" rel="noopener noreferrer">Data Structures</a></li>
+                                <li><a href="https://github.com/diegopacheco/servers-benchmark" target="_blank" rel="noopener noreferrer">Servers Benchmark</a></li>
+                                <li><a href="https://github.com/diegopacheco/java-pocs/tree/master/pocs/if-alternatives-fun" target="_blank" rel="noopener noreferrer">IF Alternatives</a></li>
+                                <li><a href="https://github.com/diegopacheco/java-pocs/tree/master/pocs/if-killer-proper-oop" target="_blank" rel="noopener noreferrer">IF Killer Proper OOP</a></li>
+                                <li><a href="https://github.com/diegopacheco/java-pocs/tree/master/pocs/java-21-spring-boot-3-async-virtual-threads" target="_blank" rel="noopener noreferrer">Spring Boot Virtual Threads</a></li>
+                                <li><a href="https://github.com/diegopacheco/scala-playground/tree/master/scala-3.7-spring-boot-3.5-netty-multi-workers-metrics-grafana-k6" target="_blank" rel="noopener noreferrer">Netty K6</a></li>
+                                <li><a href="https://github.com/diegopacheco/scala-playground/tree/master/scala-3.5-patterns/src/main/scala/com/github/diegopacheco/scalapatterns" target="_blank" rel="noopener noreferrer">Scala 3x Patterns</a></li>
+                                <li><a href="https://github.com/diegopacheco/devops-playground/tree/master/postgres-partitions-playground" target="_blank" rel="noopener noreferrer">Postgres Partition Playground</a></li>
+                                <li><a href="https://github.com/diegopacheco/java-pocs/tree/master/pocs/oop-anti-patterns" target="_blank" rel="noopener noreferrer">OOP Anti-Patterns</a></li>
                             </ul>
                         </article>
                     </div>
