@@ -422,13 +422,43 @@
         }
 
         .socials-column h2 { margin-bottom: 12px; }
-        .socials-column p {
-            margin: 8px 0;
+        .socials-widget {
             display: flex;
-            align-items: center;
-            gap: 6px;
+            flex-direction: column;
+            gap: 16px;
         }
-        .socials-column img { width: 18px; height: 18px; }
+        .socials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 12px;
+        }
+        .social-card {
+            background: rgba(90, 103, 216, 0.08);
+            border: 1px solid rgba(90, 103, 216, 0.2);
+            border-radius: 16px;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: inherit;
+            text-align: center;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        .social-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 22px rgba(15, 23, 42, 0.15);
+        }
+        .social-card img {
+            width: 42px;
+            height: 42px;
+            object-fit: contain;
+        }
+        .social-card span {
+            font-weight: 600;
+            font-size: 0.82rem;
+        }
         .resources-list { list-style: none; padding-left: 0; }
         .resources-list li { margin-bottom: 8px; }
 
@@ -772,24 +802,62 @@
         <div class="main-content-area">
             <aside class="socials-column card">
                 <h2>Socials</h2>
-                <p><img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/github-logo.png" alt="GitHub" /><a href="https://github.com/diegopacheco/" title="diegopacheco on GitHub" target="_blank" rel="noopener noreferrer">GitHub</a></p>
-                <p><img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/linkedin-logo.png" alt="LinkedIn" /><a href="https://br.linkedin.com/in/diegopachecors" title="diegopachecors on LinkedIn" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
-                <p><img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/blogger-logo.png" alt="Blogger" /><a href="http://diego-pacheco.blogspot.com.br/" title="Tech Blog on Blogger" target="_blank" rel="noopener noreferrer">Tech Blog</a></p>
-                <p><img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/substack_logo.png" alt="Substack" /><a href="https://diegopachecotech.substack.com/" title="diegopachecotech on Substack" target="_blank" rel="noopener noreferrer">Substack</a></p>
-                <p><img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/medium_logo.png" alt="Medium" /><a href="https://diego-pacheco.medium.com/" title="diego-pacheco on Medium" target="_blank" rel="noopener noreferrer">Medium</a></p>
-                <p><img src="https://cdn1.iconfinder.com/data/icons/logotypes/32/youtube-512.png" alt="YouTube" /><a href="https://tinyurl.com/diegopacheco" title="Diego Pacheco Youtube Channel" target="_blank" rel="noopener noreferrer">Youtube Channel</a></p>
-                <p><img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/twitter-logo.png" alt="Twitter" /><a href="https://twitter.com/diego_pacheco" title="@diego_pacheco on Twitter" target="_blank" rel="noopener noreferrer">@diego_pacheco</a></p>
-                <p><img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/twitter-logo.png" alt="Bluesky" /><a href="https://bsky.app/profile/diegopacheco.bsky.social" title="diegopacheco.bsky.social on Bluesky" target="_blank" rel="noopener noreferrer">bsky.social</a></p>
-                <p><img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/HN.png" alt="Hacker News" /><a href="https://news.ycombinator.com/submitted?id=diegopacheco" title="diegopacheco on Hacker News" target="_blank" rel="noopener noreferrer">Hacker News</a></p>
-                <p><img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/slideshare-logo.jpg" alt="SlideShare" /><a href="http://www.slideshare.net/diego.pacheco/presentations" title="diego.pacheco on SlideShare" target="_blank" rel="noopener noreferrer">SlideShare</a></p>
-                <p><img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/DockerHub.jpg" alt="DockerHub" /><a href="https://hub.docker.com/u/diegopacheco/" title="diegopacheco on DockerHub" target="_blank" rel="noopener noreferrer">DockerHub</a></p>
-                <p><img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/vimeo2.png" alt="Vimeo" /><a href="https://vimeo.com/channels/pacheco" title="pacheco on Vimeo" target="_blank" rel="noopener noreferrer">Vimeo</a></p>
-                <article id="resources">
-                    <h3>🌐 Resources:</h3>
-                    <ul class="resources-list">
-                        <li>📚 Amazon (<a href="https://amazon.com/author/diegopacheco" target="_blank" rel="noopener noreferrer">amazon.com/author</a>)</li>
-                    </ul>
-                </article>
+                <div class="socials-widget">
+                    <div class="socials-grid">
+                        <a class="social-card" href="https://github.com/diegopacheco/" title="diegopacheco on GitHub" target="_blank" rel="noopener noreferrer">
+                            <img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/github-logo.png" alt="GitHub" />
+                            <span>GitHub</span>
+                        </a>
+                        <a class="social-card" href="https://br.linkedin.com/in/diegopachecors" title="diegopachecors on LinkedIn" target="_blank" rel="noopener noreferrer">
+                            <img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/linkedin-logo.png" alt="LinkedIn" />
+                            <span>LinkedIn</span>
+                        </a>
+                        <a class="social-card" href="http://diego-pacheco.blogspot.com.br/" title="Tech Blog on Blogger" target="_blank" rel="noopener noreferrer">
+                            <img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/blogger-logo.png" alt="Blogger" />
+                            <span>Tech Blog</span>
+                        </a>
+                        <a class="social-card" href="https://diegopachecotech.substack.com/" title="diegopachecotech on Substack" target="_blank" rel="noopener noreferrer">
+                            <img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/substack_logo.png" alt="Substack" />
+                            <span>Substack</span>
+                        </a>
+                        <a class="social-card" href="https://diego-pacheco.medium.com/" title="diego-pacheco on Medium" target="_blank" rel="noopener noreferrer">
+                            <img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/medium.jpg" alt="Medium" />
+                            <span>Medium</span>
+                        </a>
+                        <a class="social-card" href="https://tinyurl.com/diegopacheco" title="Diego Pacheco Youtube Channel" target="_blank" rel="noopener noreferrer">
+                            <img src="https://cdn1.iconfinder.com/data/icons/logotypes/32/youtube-512.png" alt="YouTube" />
+                            <span>YouTube</span>
+                        </a>
+                        <a class="social-card" href="https://twitter.com/diego_pacheco" title="@diego_pacheco on Twitter" target="_blank" rel="noopener noreferrer">
+                            <img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/twitter-logo.png" alt="Twitter" />
+                            <span>@diego_pacheco</span>
+                        </a>
+                        <a class="social-card" href="https://bsky.app/profile/diegopacheco.bsky.social" title="diegopacheco.bsky.social on Bluesky" target="_blank" rel="noopener noreferrer">
+                            <img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/twitter-logo.png" alt="Bluesky" />
+                            <span>Bluesky</span>
+                        </a>
+                        <a class="social-card" href="https://news.ycombinator.com/submitted?id=diegopacheco" title="diegopacheco on Hacker News" target="_blank" rel="noopener noreferrer">
+                            <img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/HN.png" alt="Hacker News" />
+                            <span>Hacker News</span>
+                        </a>
+                        <a class="social-card" href="http://www.slideshare.net/diego.pacheco/presentations" title="diego.pacheco on SlideShare" target="_blank" rel="noopener noreferrer">
+                            <img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/slideshare-logo.jpg" alt="SlideShare" />
+                            <span>SlideShare</span>
+                        </a>
+                        <a class="social-card" href="https://hub.docker.com/u/diegopacheco/" title="diegopacheco on DockerHub" target="_blank" rel="noopener noreferrer">
+                            <img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/DockerHub.jpg" alt="DockerHub" />
+                            <span>DockerHub</span>
+                        </a>
+                        <a class="social-card" href="https://vimeo.com/channels/pacheco" title="pacheco on Vimeo" target="_blank" rel="noopener noreferrer">
+                            <img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/vimeo2.png" alt="Vimeo" />
+                            <span>Vimeo</span>
+                        </a>
+                        <a class="social-card" href="https://amazon.com/author/diegopacheco" title="Diego Pacheco on Amazon" target="_blank" rel="noopener noreferrer">
+                            <img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/amazon.png" alt="Amazon Author" />
+                            <span>Amazon Author</span>
+                        </a>
+                    </div>
+                </div>
             </aside>
 
             <section class="details-column card">
