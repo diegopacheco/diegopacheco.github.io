@@ -430,34 +430,30 @@
         .socials-grid {
             display: grid;
             grid-template-columns: repeat(4, minmax(0, 1fr));
-            gap: 10px;
+            gap: 4px;
         }
         .social-card {
             background: rgba(90, 103, 216, 0.08);
             border: 1px solid rgba(90, 103, 216, 0.2);
-            border-radius: 14px;
-            padding: 9px;
+            border-radius: 10px;
+            padding: 6px;
             display: flex;
-            flex-direction: column;
             align-items: center;
-            gap: 6px;
+            justify-content: center;
             text-decoration: none;
-            color: inherit;
-            text-align: center;
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            transition: box-shadow 0.2s ease;
         }
         .social-card:hover {
-            transform: translateY(-4px);
             box-shadow: 0 12px 22px rgba(15, 23, 42, 0.15);
         }
         .social-card img {
-            width: 34px;
-            height: 34px;
+            width: 38px;
+            height: 38px;
             object-fit: contain;
+            transition: transform 0.2s ease;
         }
-        .social-card span {
-            font-weight: 600;
-            font-size: 0.78rem;
+        .social-card:hover img {
+            transform: scale(1.45);
         }
         .resources-list { list-style: none; padding-left: 0; }
         .resources-list li { margin-bottom: 8px; }
@@ -593,7 +589,7 @@
     <div class="site-shell">
         <header class="hero card">
             <div class="hero-left">
-                <p class="eyebrow">Principal Software Architect • Author • Speaker</p>
+                <p class="eyebrow">Principal Software Architect • Author • Speaker • Mentor • Leader</p>
                 <div class="hero-header">
                     <div class="profile-image-container">
                         <img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/image-profile.png" alt="Diego Pacheco Profile" />
@@ -612,6 +608,7 @@
                             <li>Author</li>
                             <li>Mentor</li>
                             <li>Speaker</li>
+                            <li>Leader</li>
                         </ul>
                     </div>
                 </div>
@@ -804,57 +801,44 @@
                 <h2>Socials</h2>
                 <div class="socials-widget">
                     <div class="socials-grid">
-                        <a class="social-card" href="https://github.com/diegopacheco/" title="diegopacheco on GitHub" target="_blank" rel="noopener noreferrer">
+                        <a class="social-card" href="https://github.com/diegopacheco/" title="diegopacheco on GitHub" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                             <img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/github-logo.png" alt="GitHub" />
-                            <span>GitHub</span>
                         </a>
-                        <a class="social-card" href="https://br.linkedin.com/in/diegopachecors" title="diegopachecors on LinkedIn" target="_blank" rel="noopener noreferrer">
+                        <a class="social-card" href="https://br.linkedin.com/in/diegopachecors" title="diegopachecors on LinkedIn" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                             <img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/linkedin-logo.png" alt="LinkedIn" />
-                            <span>LinkedIn</span>
                         </a>
-                        <a class="social-card" href="http://diego-pacheco.blogspot.com.br/" title="Tech Blog on Blogger" target="_blank" rel="noopener noreferrer">
+                        <a class="social-card" href="http://diego-pacheco.blogspot.com.br/" title="Tech Blog on Blogger" target="_blank" rel="noopener noreferrer" aria-label="Tech Blog">
                             <img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/blogger-logo.png" alt="Blogger" />
-                            <span>Tech Blog</span>
                         </a>
-                        <a class="social-card" href="https://diegopachecotech.substack.com/" title="diegopachecotech on Substack" target="_blank" rel="noopener noreferrer">
+                        <a class="social-card" href="https://diegopachecotech.substack.com/" title="diegopachecotech on Substack" target="_blank" rel="noopener noreferrer" aria-label="Substack">
                             <img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/substack_logo.png" alt="Substack" />
-                            <span>Substack</span>
                         </a>
-                        <a class="social-card" href="https://diego-pacheco.medium.com/" title="diego-pacheco on Medium" target="_blank" rel="noopener noreferrer">
+                        <a class="social-card" href="https://diego-pacheco.medium.com/" title="diego-pacheco on Medium" target="_blank" rel="noopener noreferrer" aria-label="Medium">
                             <img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/medium.jpg" alt="Medium" />
-                            <span>Medium</span>
                         </a>
-                        <a class="social-card" href="https://tinyurl.com/diegopacheco" title="Diego Pacheco Youtube Channel" target="_blank" rel="noopener noreferrer">
+                        <a class="social-card" href="https://tinyurl.com/diegopacheco" title="Diego Pacheco Youtube Channel" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
                             <img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/youtube.png" alt="YouTube" />
-                            <span>YouTube</span>
                         </a>
-                        <a class="social-card" href="https://twitter.com/diego_pacheco" title="@diego_pacheco on Twitter" target="_blank" rel="noopener noreferrer">
+                        <a class="social-card" href="https://twitter.com/diego_pacheco" title="@diego_pacheco on Twitter" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
                             <img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/X_icon.svg.png" alt="Twitter" />
-                            <span>X</span>
                         </a>
-                        <a class="social-card" href="https://bsky.app/profile/diegopacheco.bsky.social" title="diegopacheco.bsky.social on Bluesky" target="_blank" rel="noopener noreferrer">
+                        <a class="social-card" href="https://bsky.app/profile/diegopacheco.bsky.social" title="diegopacheco.bsky.social on Bluesky" target="_blank" rel="noopener noreferrer" aria-label="Bluesky">
                             <img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/twitter-logo.png" alt="Bluesky" />
-                            <span>Bluesky</span>
                         </a>
-                        <a class="social-card" href="https://news.ycombinator.com/submitted?id=diegopacheco" title="diegopacheco on Hacker News" target="_blank" rel="noopener noreferrer">
+                        <a class="social-card" href="https://news.ycombinator.com/submitted?id=diegopacheco" title="diegopacheco on Hacker News" target="_blank" rel="noopener noreferrer" aria-label="Hacker News">
                             <img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/HN.png" alt="Hacker News" />
-                            <span>Hacker News</span>
                         </a>
-                        <a class="social-card" href="http://www.slideshare.net/diego.pacheco/presentations" title="diego.pacheco on SlideShare" target="_blank" rel="noopener noreferrer">
+                        <a class="social-card" href="http://www.slideshare.net/diego.pacheco/presentations" title="diego.pacheco on SlideShare" target="_blank" rel="noopener noreferrer" aria-label="SlideShare">
                             <img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/slideshare-logo.jpg" alt="SlideShare" />
-                            <span>SlideShare</span>
                         </a>
-                        <a class="social-card" href="https://hub.docker.com/u/diegopacheco/" title="diegopacheco on DockerHub" target="_blank" rel="noopener noreferrer">
+                        <a class="social-card" href="https://hub.docker.com/u/diegopacheco/" title="diegopacheco on DockerHub" target="_blank" rel="noopener noreferrer" aria-label="DockerHub">
                             <img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/DockerHub.jpg" alt="DockerHub" />
-                            <span>DockerHub</span>
                         </a>
-                        <a class="social-card" href="https://vimeo.com/channels/pacheco" title="pacheco on Vimeo" target="_blank" rel="noopener noreferrer">
+                        <a class="social-card" href="https://vimeo.com/channels/pacheco" title="pacheco on Vimeo" target="_blank" rel="noopener noreferrer" aria-label="Vimeo">
                             <img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/vimeo2.png" alt="Vimeo" />
-                            <span>Vimeo</span>
                         </a>
-                        <a class="social-card" href="https://amazon.com/author/diegopacheco" title="Diego Pacheco on Amazon" target="_blank" rel="noopener noreferrer">
+                        <a class="social-card" href="https://amazon.com/author/diegopacheco" title="Diego Pacheco on Amazon" target="_blank" rel="noopener noreferrer" aria-label="Amazon Author">
                             <img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/amazon-author.jpg" alt="Amazon Author" />
-                            <span>Amazon</span>
                         </a>
                     </div>
                 </div>
