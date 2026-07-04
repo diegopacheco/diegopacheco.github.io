@@ -409,6 +409,127 @@
             gap: 12px;
         }
 
+        .ai-spotlight {
+            position: relative;
+            overflow: hidden;
+            padding: clamp(28px, 4vw, 52px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            background: #0c1222;
+            color: #fff;
+            isolation: isolate;
+        }
+        .ai-spotlight::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            background:
+                radial-gradient(circle at 8% 0%, rgba(72, 244, 194, 0.22), transparent 28%),
+                radial-gradient(circle at 92% 100%, rgba(91, 125, 255, 0.32), transparent 34%),
+                linear-gradient(115deg, transparent 48%, rgba(255, 255, 255, 0.04) 48%, rgba(255, 255, 255, 0.04) 50%, transparent 50%);
+        }
+        .ai-spotlight-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 24px;
+            margin-bottom: 28px;
+        }
+        .ai-spotlight-kicker {
+            margin: 0 0 5px;
+            color: #48f4c2;
+            font-size: 0.76rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+        .ai-spotlight h2 {
+            margin: 0;
+            max-width: 800px;
+            color: #fff;
+            font-size: clamp(2rem, 4.3vw, 4.6rem);
+            line-height: 0.98;
+            letter-spacing: -0.045em;
+        }
+        .ai-spotlight-intro {
+            max-width: 350px;
+            margin: 0;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1rem;
+        }
+        .ai-spotlight-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+        }
+        .ai-spotlight-card {
+            position: relative;
+            min-height: 230px;
+            padding: clamp(22px, 3vw, 36px);
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.07);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 28px;
+            transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+        }
+        .ai-spotlight-card:hover {
+            opacity: 1;
+            transform: translateY(-6px);
+            border-color: #48f4c2;
+            background: rgba(72, 244, 194, 0.1);
+            box-shadow: 0 24px 50px rgba(0, 0, 0, 0.28);
+        }
+        .ai-spotlight-card:focus-visible {
+            outline: 3px solid #48f4c2;
+            outline-offset: 4px;
+        }
+        .ai-spotlight-number {
+            display: block;
+            color: #48f4c2;
+            font-size: clamp(3.8rem, 8vw, 7.5rem);
+            font-weight: 700;
+            line-height: 0.8;
+            letter-spacing: -0.075em;
+        }
+        .ai-spotlight-label {
+            display: block;
+            max-width: 470px;
+            margin-top: 18px;
+            color: #fff;
+            font-size: clamp(1.2rem, 2vw, 1.8rem);
+            font-weight: 600;
+            line-height: 1.15;
+        }
+        .ai-spotlight-action {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            color: rgba(255, 255, 255, 0.72);
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+        }
+        .ai-spotlight-arrow {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: #48f4c2;
+            color: #0c1222;
+            display: grid;
+            place-items: center;
+            font-size: 1.35rem;
+            transition: transform 0.25s ease;
+        }
+        .ai-spotlight-card:hover .ai-spotlight-arrow {
+            transform: translate(3px, -3px);
+        }
+
         .main-content-area {
             display: grid;
             grid-template-columns: 260px minmax(0, 1fr);
@@ -609,6 +730,9 @@
             .hero { padding: 24px; }
             .hero-heading ul { columns: 1; }
             .main-content-area { grid-template-columns: minmax(0, 1fr); }
+            .ai-spotlight-header { align-items: flex-start; flex-direction: column; }
+            .ai-spotlight-grid { grid-template-columns: 1fr; }
+            .ai-spotlight-card { min-height: 210px; }
         }
 
         br { display: none; }
@@ -816,6 +940,38 @@
             </div>
             </div>
         </header>
+
+        <section class="ai-spotlight card" aria-labelledby="ai-spotlight-title">
+            <div class="ai-spotlight-header">
+                <div>
+                    <p class="ai-spotlight-kicker">AI Playground</p>
+                    <h2 id="ai-spotlight-title">Built to explore.<br />Open for everyone.</h2>
+                </div>
+                <p class="ai-spotlight-intro">A growing body of hands-on work across agents, models, prompts, tools, automation, and applied AI.</p>
+            </div>
+            <div class="ai-spotlight-grid">
+                <a class="ai-spotlight-card" href="https://diegopacheco.github.io/ai-playground/" target="_blank" rel="noopener noreferrer" aria-label="Explore more than 177 agentic AI projects">
+                    <span>
+                        <span class="ai-spotlight-number">177+</span>
+                        <span class="ai-spotlight-label">Agentic AI Projects</span>
+                    </span>
+                    <span class="ai-spotlight-action">
+                        Explore the projects
+                        <span class="ai-spotlight-arrow" aria-hidden="true">↗</span>
+                    </span>
+                </a>
+                <a class="ai-spotlight-card" href="https://github.com/diegopacheco/ai-playground" target="_blank" rel="noopener noreferrer" aria-label="Browse more than 500 AI proofs of concept on GitHub">
+                    <span>
+                        <span class="ai-spotlight-number">500+</span>
+                        <span class="ai-spotlight-label">AI POCs on GitHub</span>
+                    </span>
+                    <span class="ai-spotlight-action">
+                        Browse the repository
+                        <span class="ai-spotlight-arrow" aria-hidden="true">↗</span>
+                    </span>
+                </a>
+            </div>
+        </section>
 
         <section class="bio-section card">
             <h3>👨‍💻 Diego Pacheco Bio</h3>
