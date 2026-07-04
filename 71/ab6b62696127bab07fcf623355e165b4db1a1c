@@ -1,0 +1,30 @@
+preview.sh
+  s_d377ed756abc00::t_79c3bc17a6c7ee 2,4-11
+index.html
+  s_76dde38907edd0::t_2f9f759d6c94fe 412-532,733-735,944-974
+  s_76dde38907edd0::t_fe41aef271b9e0 975
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "71ab6b62696127bab07fcf623355e165b4db1a1c",
+  "prompts": {},
+  "sessions": {
+    "s_76dde38907edd0": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f2f47-39fd-7481-8558-9b96fdf12920",
+        "model": "gpt-5.5"
+      },
+      "human_author": "diegopacheco <diego.pacheco.it@gmail.com>"
+    },
+    "s_d377ed756abc00": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "da1fb8fa-c2ec-4b14-b0ab-1c03bc5cba6c",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "diegopacheco <diego.pacheco.it@gmail.com>"
+    }
+  }
+}
