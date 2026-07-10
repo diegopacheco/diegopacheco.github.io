@@ -1,0 +1,19 @@
+index.html
+  s_3c53e1df83d954::t_73cc520e31ac2a 973-1002
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.11",
+  "base_commit_sha": "4234b2cc43d7688b4553038e8ced96acc1efd605",
+  "prompts": {},
+  "sessions": {
+    "s_3c53e1df83d954": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d575d123-b276-4138-8ff8-10b2d459ef25",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "diegopacheco <diego.pacheco.it@gmail.com>"
+    }
+  }
+}
