@@ -1,0 +1,59 @@
+index.html
+  s_18bca4d094380a::t_328fceb3ce60e8 20
+  s_18bca4d094380a::t_e55db652c5223a 462,464
+  s_18bca4d094380a::t_9af53a1041a765 15-16,22-23
+  s_18bca4d094380a::t_05197870c02b70 259
+  s_18bca4d094380a::t_8963a237761f1a 1028-1029
+  s_18bca4d094380a::t_5959276dac3c08 205
+  s_18bca4d094380a::t_2586edf384e8cd 477
+  s_18bca4d094380a::t_bb8d27d41d7337 24-25,72,216,220,536,564,661
+  s_18bca4d094380a::t_ea883c21d04654 248
+  s_18bca4d094380a::t_8dc822b5e0fe1f 187
+  s_18bca4d094380a::t_cbbcb3ac502514 18-19
+  s_18bca4d094380a::t_38982b5d827161 175
+  s_18bca4d094380a::t_c7ccd5a42efdd4 500
+  s_18bca4d094380a::t_13f5e9ebb04d8b 80
+  s_18bca4d094380a::t_5516e277ba2837 17
+  s_18bca4d094380a::t_09f107ddbbd581 430-431,435-436
+  s_18bca4d094380a::t_d190c21b60e445 189-191
+  s_18bca4d094380a::t_d99aa5ed9b63fb 184-185
+  s_18bca4d094380a::t_7a9918aa7931d3 1006
+  s_18bca4d094380a::t_b3bdde7fae3d82 650-651
+  s_18bca4d094380a::t_0f2790b1a635bc 252
+  s_18bca4d094380a::t_86934bdf91bc40 487-488,563
+  s_18bca4d094380a::t_85a26bf68d6913 195
+  s_18bca4d094380a::t_6070461afa0425 198
+  s_18bca4d094380a::t_30433b0988ce3b 676-677
+  s_18bca4d094380a::t_ea53e18d0a8e92 562,567
+  s_18bca4d094380a::t_90fd3351c55be5 1043-1044,1049-1050
+  s_18bca4d094380a::t_38067143d2ee72 1170
+  s_18bca4d094380a::t_4b2392ceca9606 204,206
+  s_18bca4d094380a::t_3e342e29d442c2 1188,1234,1242,1245
+  s_18bca4d094380a::t_7de735e32ad231 1462-1463
+  s_18bca4d094380a::t_6c6990ca95b94e 379
+  s_18bca4d094380a::t_41788658e49399 447
+  s_18bca4d094380a::t_5ad614c35ac27a 215
+  s_18bca4d094380a::t_d6837f0226a546 221
+  s_18bca4d094380a::t_4bba151fe05444 42
+  s_18bca4d094380a::t_814ff59dbb08f7 188
+  s_18bca4d094380a::t_f590740394172a 997-998
+  s_18bca4d094380a::t_4c180c0c84b45a 1157,1159-1161,1163-1164
+  s_18bca4d094380a::t_b0b617e881ecde 586
+  s_18bca4d094380a::t_b5bb95c4b2e866 1030
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "31a4b49ab02df443e4de4b6681cd97fee1efe9ae",
+  "prompts": {},
+  "sessions": {
+    "s_18bca4d094380a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "05b9a4fd-9bcd-456e-a935-596a0709833d",
+        "model": "claude-opus-5"
+      },
+      "human_author": "diegopacheco <diego.pacheco.it@gmail.com>"
+    }
+  }
+}
