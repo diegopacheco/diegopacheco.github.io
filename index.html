@@ -12,8 +12,17 @@
             --bg: #f5f7fb;
             --text: #1a1f2b;
             --muted: #5f6b81;
-            --primary: #5a67d8;
+            --primary: #4286f4;
+            --primary-text: #1b64d4;
+            --primary-from: #373b44;
+            --primary-deep: #3d67a8;
+            --primary-ink: #2c4a7d;
+            --accent: #b8d5ff;
             --card: #ffffff;
+            --tint: rgba(66, 134, 244, 0.09);
+            --tint-border: rgba(66, 134, 244, 0.24);
+            --line: rgba(35, 52, 84, 0.12);
+            --shadow: rgba(35, 52, 84, 0.28);
         }
 
         * {
@@ -30,7 +39,7 @@
         }
 
         a {
-            color: var(--primary);
+            color: var(--primary-text);
             text-decoration: none;
             font-weight: 500;
         }
@@ -60,7 +69,7 @@
         .card {
             background: var(--card);
             border-radius: 24px;
-            box-shadow: 0 20px 60px rgba(15, 23, 42, 0.08);
+            box-shadow: 0 20px 60px rgba(35, 52, 84, 0.08);
             padding: 24px;
         }
 
@@ -68,7 +77,7 @@
             display: flex;
             flex-wrap: wrap;
             gap: 30px;
-            background: linear-gradient(135deg, #373b44, #4286f4);
+            background: linear-gradient(135deg, var(--primary-from), var(--primary));
             color: #fff;
             padding: 38.8px;
             min-height: 543px;
@@ -163,6 +172,7 @@
         .side-projects-column {
             display: flex;
             flex-direction: column;
+            flex: 1;
             gap: 12px;
         }
         .side-projects-column h2 {
@@ -171,38 +181,44 @@
         }
         .side-projects-list {
             position: relative;
-            min-height: 150px;
+            flex: 1;
+            min-height: 164px;
             overflow: hidden;
+            --card-h: 92px;
+            --stack-step: 12px;
+        }
+        .side-project-card:nth-child(n+5) {
+            display: none;
         }
         .side-project-card {
             position: absolute;
-            top: 0;
+            top: calc(50% - (var(--card-h) + 3 * var(--stack-step)) / 2 + var(--stack-index, 0) * var(--stack-step));
             left: 0;
             width: 100%;
-            min-height: 84px;
+            height: var(--card-h);
             display: flex;
             flex-direction: column;
             gap: 4px;
             padding: 10px 12px;
             border-radius: 16px;
-            background: linear-gradient(165deg, rgba(22, 30, 78, 0.98), rgba(49, 66, 145, 0.98));
-            box-shadow: 0 10px 20px rgba(15, 23, 42, 0.28);
-            border: 1px solid rgba(255, 255, 255, 0.16);
+            background: #24406e;
+            box-shadow: 0 10px 20px var(--shadow);
+            border: 1px solid rgba(255, 255, 255, 0.4);
             opacity: 1;
             transition: transform 0.35s ease, box-shadow 0.35s ease;
             text-decoration: none;
             color: #fff;
-            transform: translateY(calc(var(--stack-index, 0) * 10px));
             z-index: calc(30 - var(--stack-index, 0));
             pointer-events: none;
         }
         .side-project-card.is-active {
-            box-shadow: 0 14px 30px rgba(15, 23, 42, 0.38);
+            border-color: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 14px 30px rgba(35, 52, 84, 0.38);
             pointer-events: auto;
         }
         .side-project-card:hover {
-            box-shadow: 0 16px 32px rgba(15, 23, 42, 0.45);
-            transform: translateY(calc(var(--stack-index, 0) * 10px - 4px));
+            box-shadow: 0 16px 32px rgba(35, 52, 84, 0.45);
+            transform: translateY(-4px);
         }
         .side-project-card-header {
             display: flex;
@@ -229,17 +245,18 @@
         }
         .side-project-desc {
             margin: 0;
-            color: rgba(255, 255, 255, 0.72);
+            color: #fff;
             font-size: 0.72rem;
         }
         .side-project-link {
+            margin-top: auto;
             font-size: 0.6rem;
             font-weight: 600;
             letter-spacing: 0.08em;
             display: inline-flex;
             align-items: center;
             gap: 4px;
-            color: rgba(255, 255, 255, 0.65);
+            color: #fff;
             text-transform: uppercase;
             align-self: flex-end;
         }
@@ -359,7 +376,7 @@
             overflow: hidden;
             border-radius: 14px;
             border: 1px solid rgba(255, 255, 255, 0.35);
-            box-shadow: 0 18px 36px rgba(8, 12, 30, 0.3);
+            box-shadow: 0 18px 36px var(--shadow);
         }
         .stage-frame img {
             width: 100%;
@@ -410,13 +427,13 @@
         .bio-chapters {
             display: grid;
             grid-template-columns: repeat(4, minmax(0, 1fr));
-            border-top: 1px solid rgba(15, 23, 42, 0.12);
-            border-left: 1px solid rgba(15, 23, 42, 0.12);
+            border-top: 1px solid var(--line);
+            border-left: 1px solid var(--line);
         }
         .bio-chapter {
             padding: 14px 18px;
-            border-right: 1px solid rgba(15, 23, 42, 0.12);
-            border-bottom: 1px solid rgba(15, 23, 42, 0.12);
+            border-right: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
         }
         .bio-chapter-head {
             display: flex;
@@ -427,7 +444,7 @@
             font-size: 0.68rem;
             font-weight: 800;
             letter-spacing: 0.12em;
-            color: var(--primary);
+            color: var(--primary-text);
         }
         .bio-chapter h4 {
             margin: 0;
@@ -442,9 +459,9 @@
         }
         .currently-text {
             padding: 12px 16px;
-            border: 1px solid rgba(90, 103, 216, 0.2);
+            border: 1px solid var(--tint-border);
             border-radius: 16px;
-            background: rgba(90, 103, 216, 0.06);
+            background: var(--tint);
         }
         .currently-text p {
             margin: 0;
@@ -457,7 +474,7 @@
             overflow: hidden;
             padding: clamp(24px, 3vw, 40px);
             border: 1px solid rgba(255, 255, 255, 0.12);
-            background: #0c1222;
+            background: var(--primary-ink);
             color: #fff;
             isolation: isolate;
         }
@@ -467,8 +484,8 @@
             inset: 0;
             z-index: -1;
             background:
-                radial-gradient(circle at 8% 0%, rgba(72, 244, 194, 0.22), transparent 28%),
-                radial-gradient(circle at 92% 100%, rgba(91, 125, 255, 0.32), transparent 34%),
+                radial-gradient(circle at 8% 0%, rgba(157, 196, 255, 0.22), transparent 28%),
+                radial-gradient(circle at 92% 100%, rgba(66, 134, 244, 0.45), transparent 34%),
                 linear-gradient(115deg, transparent 48%, rgba(255, 255, 255, 0.04) 48%, rgba(255, 255, 255, 0.04) 50%, transparent 50%);
         }
         .ai-spotlight-header {
@@ -480,7 +497,7 @@
         }
         .ai-spotlight-kicker {
             margin: 0 0 5px;
-            color: #48f4c2;
+            color: var(--accent);
             font-size: 0.76rem;
             font-weight: 700;
             letter-spacing: 0.2em;
@@ -516,7 +533,7 @@
             border: 1px solid rgba(255, 255, 255, 0.16);
             border-radius: 28px;
             background: rgba(255, 255, 255, 0.07);
-            box-shadow: 0 22px 45px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 22px 45px rgba(35, 52, 84, 0.35);
             color: #fff;
             overflow: hidden;
             transform: rotate(-1.2deg);
@@ -542,12 +559,12 @@
         .ai-spotlight-card:focus-visible {
             z-index: 4;
             transform: translateY(-10px) rotate(0deg);
-            border-color: #48f4c2;
-            background: rgba(72, 244, 194, 0.1);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
+            border-color: var(--accent);
+            background: rgba(157, 196, 255, 0.12);
+            box-shadow: 0 30px 60px rgba(35, 52, 84, 0.45);
         }
         .ai-spotlight-card:focus-visible {
-            outline: 3px solid #48f4c2;
+            outline: 3px solid var(--accent);
             outline-offset: 4px;
         }
         .ai-spotlight-top {
@@ -566,7 +583,7 @@
             color: rgba(255, 255, 255, 0.55);
         }
         .ai-spotlight-count {
-            color: #48f4c2;
+            color: var(--accent);
             font-size: clamp(1.7rem, 2.1vw, 2.4rem);
             font-weight: 700;
             line-height: 1;
@@ -609,7 +626,6 @@
         .left-column {
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
             align-self: stretch;
             gap: 24px;
         }
@@ -631,8 +647,8 @@
             gap: 6px;
         }
         .social-card {
-            background: rgba(90, 103, 216, 0.08);
-            border: 1px solid rgba(90, 103, 216, 0.2);
+            background: var(--tint);
+            border: 1px solid var(--tint-border);
             border-radius: 12px;
             padding: 10px;
             display: flex;
@@ -642,7 +658,7 @@
             transition: box-shadow 0.2s ease;
         }
         .social-card:hover {
-            box-shadow: 0 12px 22px rgba(15, 23, 42, 0.15);
+            box-shadow: 0 12px 22px rgba(35, 52, 84, 0.15);
         }
         .social-card img {
             width: 52px;
@@ -657,8 +673,8 @@
         .resources-list li { margin-bottom: 8px; }
 
         .details-column { display: flex; flex-direction: column; gap: 16px; }
-        .skills-list, .certifications-list, .essays-list, .projects-list, .papers-list { list-style: none; padding-left: 0; }
-        .skills-list { list-style: disc; padding-left: 18px; }
+        .essays-list, .projects-list { list-style: none; padding-left: 0; }
+        .skills-list, .certifications-list, .papers-list { list-style: disc; padding-left: 18px; }
         .feature-pocs-list {
             list-style: disc;
             padding-left: 20px;
@@ -978,8 +994,8 @@
                     <p>I've spent over a decade building teams and mentoring people, teaching soft skills and technology daily — selling projects, hiring, building solutions, running coding dojos, long retrospectives, weekly 1:1s, design sessions, code reviews, and my favorite debate club: architects' communities of practice and development groups.</p>
                 </article>
                 <article class="bio-chapter">
-                    <div class="bio-chapter-head"><span class="bio-chapter-number">03</span><h4>Hands-on Architecture at scale</h4></div>
-                    <p>I've led complex architecture and engineering teams guided by SOA principles, using open-source languages like Java, Scala, Rust, Go, Python, Groovy, JavaScript and TypeScript; AWS and Google GCP; Akka, ActiveMQ, Netty, Tomcat and Gatling; Cassandra, Redis, Elasticsearch, OpenSearch and RabbitMQ; Spring, Hibernate, Spring Boot, and the NetflixOSS stack. I've also implemented security at scale using AWS KMS, S3, ECS, EKS, Terraform, and Jenkins.</p>
+                    <div class="bio-chapter-head"><span class="bio-chapter-number">03</span><h4>Hands-on architecture at scale</h4></div>
+                    <p>I've led complex architecture and engineering teams guided by SOA principles, using open-source languages like Java, Scala, Rust, Go, Python, Groovy, JavaScript, and TypeScript; AWS and Google GCP; Akka, ActiveMQ, Netty, Tomcat, and Gatling; Cassandra, Redis, Elasticsearch, OpenSearch, and RabbitMQ; Spring, Hibernate, Spring Boot, and the NetflixOSS stack. I've also implemented security at scale using AWS KMS, S3, ECS, EKS, Terraform, and Jenkins.</p>
                 </article>
                 <article class="bio-chapter">
                     <div class="bio-chapter-head"><span class="bio-chapter-number">04</span><h4>Across borders</h4></div>
@@ -987,7 +1003,7 @@
                 </article>
             </div>
             <div class="currently-text">
-                <p>🌱Currently: Working as a hands-on lead Software Architect with AWS public cloud, Kubernetes/EKS, performing complex cloud migrations, library migrations, server and persistence migrations, and security at scale with multi-level envelope encryption solutions using KMS and S3. Building complex multi-step debit orchestration systems with Java 25, Scala 3x, Kotlin, and Python 3x. While still hiring, teaching, mentoring, and growing engineers and architects. During my free time, I love playing guitar, gaming, coding POCs, and blogging. Active blogger blog at http://diego-pacheco.blogspot.com.br/</p>
+                <p>🌱 Currently: working as a hands-on lead Software Architect with AWS public cloud and Kubernetes/EKS, performing complex cloud, library, server, and persistence migrations, and security at scale with multi-level envelope encryption solutions using KMS and S3. Building complex multi-step debit orchestration systems with Java 25, Scala 3x, Kotlin, and Python 3x, while still hiring, teaching, mentoring, and growing engineers and architects. In my free time, I love playing guitar, gaming, coding POCs, and blogging. I blog actively at http://diego-pacheco.blogspot.com.br/</p>
             </div>
         </section>
 
@@ -1003,14 +1019,14 @@
                             <a class="social-card" href="https://br.linkedin.com/in/diegopachecors" title="diegopachecors on LinkedIn" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                                 <img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/linkedin-logo.png" alt="LinkedIn" />
                             </a>
-                            <a class="social-card" href="http://diego-pacheco.blogspot.com.br/" title="Tech Blog on Blogger" target="_blank" rel="noopener noreferrer" aria-label="Tech Blog">
-                                <img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/Blogger_icon.svg.png" alt="Blogger" />
-                            </a>
                             <a class="social-card" href="https://diegopachecotech.substack.com/" title="diegopachecotech on Substack" target="_blank" rel="noopener noreferrer" aria-label="Substack">
                                 <img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/substack_logo.png" alt="Substack" />
                             </a>
                             <a class="social-card" href="https://diego-pacheco.medium.com/" title="diego-pacheco on Medium" target="_blank" rel="noopener noreferrer" aria-label="Medium">
                                 <img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/medium.png" alt="Medium" />
+                            </a>
+                            <a class="social-card" href="http://diego-pacheco.blogspot.com.br/" title="Tech Blog on Blogger" target="_blank" rel="noopener noreferrer" aria-label="Tech Blog">
+                                <img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/Blogger_icon.svg.png" alt="Blogger" />
                             </a>
                             <a class="social-card" href="https://tinyurl.com/diegopacheco" title="Diego Pacheco Youtube Channel" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
                                 <img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/youtube.png" alt="YouTube" />
@@ -1024,17 +1040,14 @@
                             <a class="social-card" href="https://news.ycombinator.com/submitted?id=diegopacheco" title="diegopacheco on Hacker News" target="_blank" rel="noopener noreferrer" aria-label="Hacker News">
                                 <img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/HN.png" alt="Hacker News" />
                             </a>
-                            <a class="social-card" href="http://www.slideshare.net/diego.pacheco/presentations" title="diego.pacheco on SlideShare" target="_blank" rel="noopener noreferrer" aria-label="SlideShare">
-                                <img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/slideshare.png" alt="SlideShare" />
-                            </a>
-                            <a class="social-card" href="https://hub.docker.com/u/diegopacheco/" title="diegopacheco on DockerHub" target="_blank" rel="noopener noreferrer" aria-label="DockerHub">
-                                <img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/docker.png" alt="DockerHub" />
+                            <a class="social-card" href="https://amazon.com/author/diegopacheco" title="Diego Pacheco on Amazon" target="_blank" rel="noopener noreferrer" aria-label="Amazon Author">
+                                <img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/amazon-author.png" alt="Amazon Author" />
                             </a>
                             <a class="social-card" href="https://vimeo.com/channels/pacheco" title="pacheco on Vimeo" target="_blank" rel="noopener noreferrer" aria-label="Vimeo">
                                 <img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/vimeo2.png" alt="Vimeo" />
                             </a>
-                            <a class="social-card" href="https://amazon.com/author/diegopacheco" title="Diego Pacheco on Amazon" target="_blank" rel="noopener noreferrer" aria-label="Amazon Author">
-                                <img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/amazon-author.png" alt="Amazon Author" />
+                            <a class="social-card" href="http://www.slideshare.net/diego.pacheco/presentations" title="diego.pacheco on SlideShare" target="_blank" rel="noopener noreferrer" aria-label="SlideShare">
+                                <img src="https://raw.githubusercontent.com/diegopacheco/diegopacheco.github.io/master/images/slideshare.png" alt="SlideShare" />
                             </a>
                         </div>
                     </div>
@@ -1141,20 +1154,20 @@
                 <div class="skills-lectures-container">
                     <div class="skills-column">
                         <article id="skills">
-                            <h3>💻 Core skills and expertise:</h3>
+                            <h3>💻 Core Skills and Expertise</h3>
                             <ul class="skills-list">
-                                <li>Architecture Design and architecture coding for highly scalable systems</li>
-                                <li>Delivering distributed systems using SOA and Microservices principles, tools, and techniques</li>
-                                <li>Driving and executing complex cloud migrations, library and server migrations at scale</li>
+                                <li>Architecture design and architecture coding for highly scalable systems</li>
+                                <li>Delivering distributed systems using SOA and microservices principles, tools, and techniques</li>
+                                <li>Driving and executing complex cloud, library, and server migrations at scale</li>
                                 <li>Performance tuning, troubleshooting & DevOps engineering</li>
-                                <li>Functional Programming and Scala</li>
-                                <li>Technology Mentor, agile coach & leader for architecture and engineering teams</li>
+                                <li>Functional programming and Scala</li>
+                                <li>Technology mentor, agile coach & leader for architecture and engineering teams</li>
                                 <li>Consultant on development practices with XP / Kanban</li>
                                 <li>Hire, develop, retain, and truly grow talent at scale</li>
                             </ul>
                         </article>
                         <article id="feature-pocs">
-                            <h3>🧪 Feature POCs:</h3>
+                            <h3>🧪 Feature POCs</h3>
                             <ul class="feature-pocs-list">
                                 <li><a href="https://github.com/diegopacheco/ai-playground" target="_blank" rel="noopener noreferrer">AI Playground</a></li>
                                 <li><a href="https://github.com/diegopacheco/data-structures" target="_blank" rel="noopener noreferrer">Data Structures</a></li>
@@ -1172,7 +1185,7 @@
 
                     <div class="lectures-column">
                         <article id="lectures" class="lectures-section">
-                            <h2>🔉Recent Lectures</h2>
+                            <h2>🔉 Recent Lectures</h2>
                             <table>
                                 <thead>
                                     <tr>
@@ -1218,7 +1231,7 @@
                         <article id="certifications">
                             <h3>💯 Certifications</h3>
                             <ul class="certifications-list">
-                                <li>📐Google Cloud Architect</li>
+                                <li>📐 Google Cloud Architect</li>
                                 <li>☕ Sun Certified Web Component Developer</li>
                                 <li>☕ Sun Certified Java Programmer</li>
                             </ul>
@@ -1226,10 +1239,10 @@
                     </div>
                 </div>
                 <article id="feature-ai-pocs">
-                    <h3>🤖 Feature AI POCs:</h3>
+                    <h3>🤖 Feature AI POCs</h3>
                     <ul class="feature-ai-pocs-list">
                         <li><a href="https://github.com/diegopacheco/code-city-viz" target="_blank" rel="noopener noreferrer">🏙️ Code City Viz</a></li>
-                        <li><a href="https://github.com/diegopacheco/ras" target="_blank" rel="noopener noreferrer">📄 Rust Arxiv Sumarizer</a></li>
+                        <li><a href="https://github.com/diegopacheco/ras" target="_blank" rel="noopener noreferrer">📄 Rust Arxiv Summarizer</a></li>
                         <li><a href="https://github.com/diegopacheco/claudio-coda-rust" target="_blank" rel="noopener noreferrer">🦀 Claudio Coda</a></li>
                         <li><a href="https://github.com/diegopacheco/local-agent-orama" target="_blank" rel="noopener noreferrer">🔮 Local Agent Orama</a></li>
                         <li><a href="https://github.com/diegopacheco/local-agent-rust-llama3" target="_blank" rel="noopener noreferrer">🦙 Local Agent llr3</a></li>
@@ -1445,6 +1458,8 @@
                     timer = null;
                 }
             }
+
+            startAuto();
 
             let dragStart = null;
             let hoverY = null;
