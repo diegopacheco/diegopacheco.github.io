@@ -405,12 +405,51 @@
         .bio-section {
             display: grid;
             gap: 10px;
+            padding: 20px 24px;
         }
-        .bio-text p,
+        .bio-chapters {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            border-top: 1px solid rgba(15, 23, 42, 0.12);
+            border-left: 1px solid rgba(15, 23, 42, 0.12);
+        }
+        .bio-chapter {
+            padding: 14px 18px;
+            border-right: 1px solid rgba(15, 23, 42, 0.12);
+            border-bottom: 1px solid rgba(15, 23, 42, 0.12);
+        }
+        .bio-chapter-head {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+        }
+        .bio-chapter-number {
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            color: var(--primary);
+        }
+        .bio-chapter h4 {
+            margin: 0;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        .bio-chapter p {
+            margin: 8px 0 0;
+            color: var(--muted);
+            font-size: 0.78rem;
+            line-height: 1.5;
+        }
+        .currently-text {
+            padding: 12px 16px;
+            border: 1px solid rgba(90, 103, 216, 0.2);
+            border-radius: 16px;
+            background: rgba(90, 103, 216, 0.06);
+        }
         .currently-text p {
             margin: 0;
-            font-size: 0.92rem;
-            line-height: 1.55;
+            font-size: 0.82rem;
+            line-height: 1.5;
         }
 
         .ai-spotlight {
@@ -729,6 +768,7 @@
         }
 
         @media (max-width: 1180px) {
+            .bio-chapters { grid-template-columns: repeat(2, minmax(0, 1fr)); }
             .ai-spotlight-header { flex-direction: column; align-items: flex-start; gap: 12px; }
             .ai-spotlight-intro { max-width: none; }
         }
@@ -756,6 +796,7 @@
             .hero-heading ul { columns: 1; }
             .main-content-area { grid-template-columns: minmax(0, 1fr); }
             .left-column { flex-direction: column; }
+            .bio-chapters { grid-template-columns: minmax(0, 1fr); }
             .ai-spotlight h2 { white-space: normal; }
             .ai-spotlight-card { flex-basis: 100%; min-height: 240px; padding: 24px; }
         }
@@ -927,11 +968,26 @@
 
         <section class="bio-section card">
             <h3>👨‍💻 Diego Pacheco Bio</h3>
-            <div class="bio-text">
-                <p>Diego Pacheco is a seasoned, experienced 🇧🇷Brazilian software architect, author, speaker,technology mentor, and DevOps practitioner with more than 20+ years of solid experience. I've been building teams and mentoring people for more than a decade, teaching soft skills and technology daily. Selling projects, hiring, building solutions, running coding dojos, long retrospectives, weekly 1:1s, design sessions, code reviews, and my favorite debate club: architects community of practices and development groups for more than a decade. Live, breathe, and practice real Agile since 2005, coaching teams have helped many companies to discover better ways to work using Lean and Kanban, Agile principles, and methods like XP and DTA/TTA. I've led complex architecture teams and engineering teams at scale guided by SOA principles, using a variety of open-source languages like Java, Scala, Rust, Go, Python, Groovy, JavaScript and TypeScript, cloud providers like AWS Cloud and Google GCP, amazing solutions like Akka, ActiveMQ, Netty, Tomcat and Gatling, NoSQL databases like Cassandra, Redis, Elasticache Redis, Elasticsearch, Opensearch, RabbitMQ, libraries like Spring, Hibernate, and Spring Boot and also the NetflixOSS Stack: Simian Army, RxJava, Karyon, Dynomite, Eureka, and Ribbon. I've implemented complex security solutions at scale using AWS KMS, S3, Containers (ECS and EKs), Terraform, and Jenkins. Over a decade of experience as a consultant, coding, designing, and training people at big customers in Brazil, London, Barcelona, India, and the USA(Silicon Valley and Midwest). I have a passion for functional programming and distributed systems, NoSQL Databases, a mindset for Observability, and always learning new programming languages.</p>
+            <div class="bio-chapters">
+                <article class="bio-chapter">
+                    <div class="bio-chapter-head"><span class="bio-chapter-number">01</span><h4>The practice</h4></div>
+                    <p>I'm a Brazilian software architect, author, speaker, technology mentor, and DevOps practitioner with more than 20 years of hands-on experience. I've lived, breathed, and practiced real Agile since 2005, coaching teams and helping companies discover better ways to work through Lean, Kanban, Agile principles, and methods like XP and DTA/TTA.</p>
+                </article>
+                <article class="bio-chapter">
+                    <div class="bio-chapter-head"><span class="bio-chapter-number">02</span><h4>Teams and teaching</h4></div>
+                    <p>I've spent over a decade building teams and mentoring people, teaching soft skills and technology daily — selling projects, hiring, building solutions, running coding dojos, long retrospectives, weekly 1:1s, design sessions, code reviews, and my favorite debate club: architects' communities of practice and development groups.</p>
+                </article>
+                <article class="bio-chapter">
+                    <div class="bio-chapter-head"><span class="bio-chapter-number">03</span><h4>Hands-on Architecture at scale</h4></div>
+                    <p>I've led complex architecture and engineering teams guided by SOA principles, using open-source languages like Java, Scala, Rust, Go, Python, Groovy, JavaScript and TypeScript; AWS and Google GCP; Akka, ActiveMQ, Netty, Tomcat and Gatling; Cassandra, Redis, Elasticsearch, OpenSearch and RabbitMQ; Spring, Hibernate, Spring Boot, and the NetflixOSS stack. I've also implemented security at scale using AWS KMS, S3, ECS, EKS, Terraform, and Jenkins.</p>
+                </article>
+                <article class="bio-chapter">
+                    <div class="bio-chapter-head"><span class="bio-chapter-number">04</span><h4>Across borders</h4></div>
+                    <p>More than a decade of consulting — coding, designing, and training people at large customers in Brazil, London, Barcelona, India, and the USA — shaped my passion for functional programming, distributed systems, NoSQL databases, an observability mindset, and the habit of always learning new programming languages.</p>
+                </article>
             </div>
             <div class="currently-text">
-                <p>🌱Currently: Working as a principal Software Architect with AWS public cloud, Kubernetes/EKS, performing complex cloud migrations, library migrations, server and persistence migrations, and security at scale with multi-level envelope encryption solutions using KMS and S3. While still hiring, teaching, mentoring, and growing engineers and architects. During my free time, I love playing guitar, gaming, coding POCs, and blogging. Active blogger blog at http://diego-pacheco.blogspot.com.br/</p>
+                <p>🌱Currently: Working as a hands-on lead Software Architect with AWS public cloud, Kubernetes/EKS, performing complex cloud migrations, library migrations, server and persistence migrations, and security at scale with multi-level envelope encryption solutions using KMS and S3. Building complex multi-step debit orchestration systems with Java 25, Scala 3x, Kotlin, and Python 3x. While still hiring, teaching, mentoring, and growing engineers and architects. During my free time, I love playing guitar, gaming, coding POCs, and blogging. Active blogger blog at http://diego-pacheco.blogspot.com.br/</p>
             </div>
         </section>
 
