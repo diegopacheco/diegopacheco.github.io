@@ -1,0 +1,19 @@
+GITHUB-PAGES-INSTRUCTIONS.md
+  s_7d6fb0d0705e82::t_59ff138f9506cc 1-49
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "a57130b5cb81fe2f5cf102dca814b074eb9552f8",
+  "prompts": {},
+  "sessions": {
+    "s_7d6fb0d0705e82": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "798b93a0-41c7-4509-91b5-2558c59f42ef",
+        "model": "claude-opus-5"
+      },
+      "human_author": "diegopacheco <diego.pacheco.it@gmail.com>"
+    }
+  }
+}
